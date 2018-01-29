@@ -13,6 +13,9 @@
 		0BAB5314201B6F6C0025E3AB /* zavbusCurator2.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0BAB5312201B6F6C0025E3AB /* zavbusCurator2.xcdatamodeld */; };
 		0BAB5316201B6F6C0025E3AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0BAB5315201B6F6C0025E3AB /* Assets.xcassets */; };
 		0BAB5319201B6F6C0025E3AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BAB5317201B6F6C0025E3AB /* LaunchScreen.storyboard */; };
+		BF8D03A1F3F30E07D7E92E2C /* BusTripTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8D07E2958748AB7A424C19 /* BusTripTableViewController.swift */; };
+		BF8D0BABDB1DDC84B01358D5 /* TripRecordTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8D0A571D38403D59ABE8D8 /* TripRecordTableViewController.swift */; };
+		BF8D0C192081F8BC88E89328 /* TripRecordInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8D0891DDE631EDC30F92AF /* TripRecordInfoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,10 +23,13 @@
 		0BAB530B201B6F6C0025E3AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0BAB530D201B6F6C0025E3AB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0BAB5310201B6F6C0025E3AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		0BAB5313201B6F6C0025E3AB /* zavbusCurator2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = zavbusCurator2.xcdatamodel; sourceTree = "<group>"; };
+		0BAB5313201B6F6C0025E3AB /* zavbusCurator2.xcdatamodel */ = {isa = PBXFileReference; explicitFileType = wrapper.xcdatamodel; path = zavbusCurator2.xcdatamodel; sourceTree = "<group>"; };
 		0BAB5315201B6F6C0025E3AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0BAB5318201B6F6C0025E3AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0BAB531A201B6F6C0025E3AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF8D07E2958748AB7A424C19 /* BusTripTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusTripTableViewController.swift; sourceTree = "<group>"; };
+		BF8D0891DDE631EDC30F92AF /* TripRecordInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripRecordInfoViewController.swift; sourceTree = "<group>"; };
+		BF8D0A571D38403D59ABE8D8 /* TripRecordTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripRecordTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,8 +69,27 @@
 				0BAB5317201B6F6C0025E3AB /* LaunchScreen.storyboard */,
 				0BAB531A201B6F6C0025E3AB /* Info.plist */,
 				0BAB5312201B6F6C0025E3AB /* zavbusCurator2.xcdatamodeld */,
+				BF8D0F5C71C348C6C8F8F650 /* Model */,
+				BF8D0ACE02CCA600CF8B5C82 /* Controllers */,
 			);
 			path = zavbusCurator2;
+			sourceTree = "<group>";
+		};
+		BF8D0ACE02CCA600CF8B5C82 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				BF8D07E2958748AB7A424C19 /* BusTripTableViewController.swift */,
+				BF8D0891DDE631EDC30F92AF /* TripRecordInfoViewController.swift */,
+				BF8D0A571D38403D59ABE8D8 /* TripRecordTableViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		BF8D0F5C71C348C6C8F8F650 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -142,6 +167,9 @@
 				0BAB530E201B6F6C0025E3AB /* ViewController.swift in Sources */,
 				0BAB5314201B6F6C0025E3AB /* zavbusCurator2.xcdatamodeld in Sources */,
 				0BAB530C201B6F6C0025E3AB /* AppDelegate.swift in Sources */,
+				BF8D03A1F3F30E07D7E92E2C /* BusTripTableViewController.swift in Sources */,
+				BF8D0C192081F8BC88E89328 /* TripRecordInfoViewController.swift in Sources */,
+				BF8D0BABDB1DDC84B01358D5 /* TripRecordTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

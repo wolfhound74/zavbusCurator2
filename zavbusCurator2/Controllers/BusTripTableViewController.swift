@@ -52,6 +52,11 @@ class BusTripTableViewController: UITableViewController {
                 }
                 let managedContext = appDelegate.persistentContainer.viewContext
 
+                if loadTrips.count > 0 {
+                    removeAllFromCoreData()
+                    busTrips.removeAll()
+                }
+
                 for var trip in loadTrips {
                     let tripEntity = NSEntityDescription.entity(forEntityName: "Trip", in: managedContext)!
                     let tripObject = NSManagedObject(entity: tripEntity, insertInto: managedContext)
@@ -76,8 +81,8 @@ class BusTripTableViewController: UITableViewController {
             return
         }
 
-        let managedContext =  appDelegate.persistentContainer.viewContext
-        let fetchRequest =  NSFetchRequest<NSManagedObject>(entityName: "Trip")
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Trip")
 
         do {
             busTrips = try managedContext.fetch(fetchRequest)
@@ -86,6 +91,21 @@ class BusTripTableViewController: UITableViewController {
         }
     }
 
+    func removeAllFromCoreData() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let coord = appDelegate.persistentContainer.persistentStoreCoordinator
+
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Trip")
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest as! NSFetchRequest<NSFetchRequestResult>)
+
+        do {
+            try managedContext.execute(deleteRequest)
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+    }
 
 
     /*

@@ -3,7 +3,7 @@ import CoreData
 
 class BusTripTableViewController: UITableViewController {
 
-    var busTrips = [NSManagedObject]()
+    var busTrips = [Trip]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,8 +32,8 @@ class BusTripTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tripCell", for: indexPath)
 
         let trip = busTrips[indexPath.row]
-        cell.textLabel?.text = trip.value(forKeyPath: "title") as? String
-        cell.detailTextLabel?.text = trip.value(forKeyPath: "dates") as? String
+        cell.textLabel?.text = trip.title
+        cell.detailTextLabel?.text = trip.dates
 
         return cell
     }
@@ -59,11 +59,11 @@ class BusTripTableViewController: UITableViewController {
 
                 for var trip in loadTrips {
                     let tripEntity = NSEntityDescription.entity(forEntityName: "Trip", in: managedContext)!
-                    let tripObject = NSManagedObject(entity: tripEntity, insertInto: managedContext)
+                    let tripObject = Trip(entity: tripEntity, insertInto: managedContext)
 
-                    tripObject.setValue(trip.object(forKey: "id") as? Int16, forKey: "id")
-                    tripObject.setValue(trip.object(forKey: "dates") as? String, forKeyPath: "dates")
-                    tripObject.setValue(trip.object(forKey: "title") as? String, forKey: "title")
+                    tripObject.id = trip.object(forKey: "id") as! Int32
+                    tripObject.dates = trip.object(forKey: "dates") as? String
+                    tripObject.title = trip.object(forKey: "title") as? String
 
                     busTrips.append(tripObject)
                     try managedContext.save()
@@ -82,7 +82,7 @@ class BusTripTableViewController: UITableViewController {
         }
 
         let managedContext = appDelegate.persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Trip")
+        let fetchRequest = NSFetchRequest<Trip>(entityName: "Trip")
 
         do {
             busTrips = try managedContext.fetch(fetchRequest)
@@ -97,7 +97,7 @@ class BusTripTableViewController: UITableViewController {
         let managedContext = appDelegate.persistentContainer.viewContext
         let coord = appDelegate.persistentContainer.persistentStoreCoordinator
 
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Trip")
+        let fetchRequest = NSFetchRequest<Trip>(entityName: "Trip")
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest as! NSFetchRequest<NSFetchRequestResult>)
 
         do {

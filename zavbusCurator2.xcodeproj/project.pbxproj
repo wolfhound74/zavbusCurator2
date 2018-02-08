@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0B9A44AC202C910000FB49B5 /* Trip+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9A44AA202C910000FB49B5 /* Trip+CoreDataClass.swift */; };
-		0B9A44AD202C910000FB49B5 /* Trip+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9A44AB202C910000FB49B5 /* Trip+CoreDataProperties.swift */; };
+		0B9A44B6202CA0AE00FB49B5 /* TripRecord+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9A44B2202CA0AE00FB49B5 /* TripRecord+CoreDataClass.swift */; };
+		0B9A44B7202CA0AE00FB49B5 /* TripRecord+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9A44B3202CA0AE00FB49B5 /* TripRecord+CoreDataProperties.swift */; };
+		0B9A44B8202CA0AE00FB49B5 /* Trip+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9A44B4202CA0AE00FB49B5 /* Trip+CoreDataClass.swift */; };
+		0B9A44B9202CA0AE00FB49B5 /* Trip+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9A44B5202CA0AE00FB49B5 /* Trip+CoreDataProperties.swift */; };
 		0BAB530C201B6F6C0025E3AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAB530B201B6F6C0025E3AB /* AppDelegate.swift */; };
 		0BAB530E201B6F6C0025E3AB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAB530D201B6F6C0025E3AB /* ViewController.swift */; };
 		0BAB5311201B6F6C0025E3AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BAB530F201B6F6C0025E3AB /* Main.storyboard */; };
@@ -21,8 +23,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0B9A44AA202C910000FB49B5 /* Trip+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Trip+CoreDataClass.swift"; sourceTree = "<group>"; };
-		0B9A44AB202C910000FB49B5 /* Trip+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Trip+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		0B9A44B2202CA0AE00FB49B5 /* TripRecord+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TripRecord+CoreDataClass.swift"; sourceTree = "<group>"; };
+		0B9A44B3202CA0AE00FB49B5 /* TripRecord+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TripRecord+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		0B9A44B4202CA0AE00FB49B5 /* Trip+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Trip+CoreDataClass.swift"; sourceTree = "<group>"; };
+		0B9A44B5202CA0AE00FB49B5 /* Trip+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Trip+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		0BAB5308201B6F6C0025E3AB /* zavbusCurator2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = zavbusCurator2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BAB530B201B6F6C0025E3AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0BAB530D201B6F6C0025E3AB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -92,8 +96,10 @@
 		BF8D0F5C71C348C6C8F8F650 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				0B9A44AA202C910000FB49B5 /* Trip+CoreDataClass.swift */,
-				0B9A44AB202C910000FB49B5 /* Trip+CoreDataProperties.swift */,
+				0B9A44B2202CA0AE00FB49B5 /* TripRecord+CoreDataClass.swift */,
+				0B9A44B3202CA0AE00FB49B5 /* TripRecord+CoreDataProperties.swift */,
+				0B9A44B4202CA0AE00FB49B5 /* Trip+CoreDataClass.swift */,
+				0B9A44B5202CA0AE00FB49B5 /* Trip+CoreDataProperties.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -171,13 +177,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				0BAB530E201B6F6C0025E3AB /* ViewController.swift in Sources */,
-				0B9A44AC202C910000FB49B5 /* Trip+CoreDataClass.swift in Sources */,
-				0B9A44AD202C910000FB49B5 /* Trip+CoreDataProperties.swift in Sources */,
+				0B9A44B6202CA0AE00FB49B5 /* TripRecord+CoreDataClass.swift in Sources */,
 				0BAB5314201B6F6C0025E3AB /* zavbusCurator2.xcdatamodeld in Sources */,
 				0BAB530C201B6F6C0025E3AB /* AppDelegate.swift in Sources */,
 				BF8D03A1F3F30E07D7E92E2C /* BusTripTableViewController.swift in Sources */,
 				BF8D0C192081F8BC88E89328 /* TripRecordInfoViewController.swift in Sources */,
 				BF8D0BABDB1DDC84B01358D5 /* TripRecordTableViewController.swift in Sources */,
+				0B9A44B8202CA0AE00FB49B5 /* Trip+CoreDataClass.swift in Sources */,
+				0B9A44B9202CA0AE00FB49B5 /* Trip+CoreDataProperties.swift in Sources */,
+				0B9A44B7202CA0AE00FB49B5 /* TripRecord+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

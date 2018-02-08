@@ -39,8 +39,8 @@ class BusTripTableViewController: UITableViewController {
     }
 
     private func getDataFromServer() {
-//        let url = URL(string: "http://zavbus.team/api/curatorData")
-        let url = URL(string: "http://localhost:8090/api/curatorData")
+        let url = URL(string: "http://zavbus.team/api/curatorData")
+//        let url = URL(string: "http://localhost:8090/api/curatorData")
         do {
             let data = try Data(contentsOf: url!)
             do {
@@ -61,9 +61,23 @@ class BusTripTableViewController: UITableViewController {
                     let tripEntity = NSEntityDescription.entity(forEntityName: "Trip", in: managedContext)!
                     let tripObject = Trip(entity: tripEntity, insertInto: managedContext)
 
-                    tripObject.id = trip.object(forKey: "id") as! Int32
+                    tripObject.id = trip.object(forKey: "id") as! Int64
                     tripObject.dates = trip.object(forKey: "dates") as? String
                     tripObject.title = trip.object(forKey: "title") as? String
+
+                    for var record in trip.object(forKey: "records") as! Array<NSDictionary> {
+                        let tripRecordEntity = NSEntityDescription.entity(forEntityName: "TripRecord", in: managedContext)!
+                        let tripRecordObj = TripRecord(entity: tripRecordEntity, insertInto: managedContext)
+
+                        tripRecordObj.trip = tripObject
+                        tripObject.addToRecords(tripRecordObj)
+
+                        tripRecordObj.firstName = record.object(forKey: "firstName") as? String
+                        tripRecordObj.lastName = record.object(forKey: "lastName") as? String
+                        tripRecordObj.id = record.object(forKey: "id") as! Int64
+                        tripRecordObj.state = record.object(forKey: "state") as! Int32
+                        tripRecordObj.status = record.object(forKey: "status") as! Int32
+                    }
 
                     busTrips.append(tripObject)
                     try managedContext.save()
@@ -150,10 +164,10 @@ class BusTripTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "tripRecords" {
             if let indexPath = tableView.indexPathForSelectedRow {
-//                let records = busTrips[indexPath.row].records
-//                let controller = segue.destination as! TripRecordTableViewController
-//                controller.records = records
-//                controller.trip = busTrips[(tableView.indexPathForSelectedRow?.row)!]
+                let trip = busTrips[(tableView.indexPathForSelectedRow?.row)!]
+                let controller = segue.destination as! TripRecordTableViewController
+                controller.records = trip.records?.allObjects as! [TripRecord]
+                controller.trip = trip
 //
 //                controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
 //                controller.navigationItem.leftItemsSupplementBackButton = true

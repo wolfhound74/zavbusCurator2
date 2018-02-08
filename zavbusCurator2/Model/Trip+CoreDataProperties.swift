@@ -18,7 +18,25 @@ extension Trip {
     }
 
     @NSManaged public var dates: String?
-    @NSManaged public var id: Int32
+    @NSManaged public var id: Int64
     @NSManaged public var title: String?
+    @NSManaged public var records: NSSet?
+
+}
+
+// MARK: Generated accessors for records
+extension Trip {
+
+    @objc(addRecordsObject:)
+    @NSManaged public func addToRecords(_ value: TripRecord)
+
+    @objc(removeRecordsObject:)
+    @NSManaged public func removeFromRecords(_ value: TripRecord)
+
+    @objc(addRecords:)
+    @NSManaged public func addToRecords(_ values: NSSet)
+
+    @objc(removeRecords:)
+    @NSManaged public func removeFromRecords(_ values: NSSet)
 
 }

@@ -11,8 +11,8 @@ import CoreData
 
 class TripRecordTableViewController: UITableViewController {
 
-    var records = [NSManagedObject]()
-//    var trip: BusTrip?
+    var records = [TripRecord]()
+    var trip: Trip?
 
 //    var selectedRider: TripRecord?
 
@@ -29,13 +29,13 @@ class TripRecordTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return records.count
+        return trip!.records!.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tripRecordCell", for: indexPath)
 
-//        cell.textLabel?.text = self.records[indexPath.row].fullName
+        cell.textLabel?.text = self.records[indexPath.row].getFullName()
         return cell
     }
 
@@ -78,8 +78,8 @@ class TripRecordTableViewController: UITableViewController {
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
        if segue.identifier == "recordInfo" {
             if let indexPath = tableView.indexPathForSelectedRow {
-                let record = records[indexPath.row]
-                let controller = segue.destination as! TripRecordInfoViewController
+//                let record = records[indexPath.row]
+//                let controller = segue.destination as! TripRecordInfoViewController
 
 //                controller.record = record
             }

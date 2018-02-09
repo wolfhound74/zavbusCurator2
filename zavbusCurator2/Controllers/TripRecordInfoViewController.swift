@@ -2,12 +2,16 @@ import UIKit
 
 class TripRecordInfoViewController: UIViewController {
 
+    var tripRecord: TripRecord?
+    
     @IBOutlet weak var needPay: UILabel!
     @IBOutlet weak var riderFullName: UILabel!
 
     var needPaySum: Int?
     var startSum: Int?
 
+    @IBOutlet weak var nameLabel: UILabel!
+    
     @IBAction func statusSegment(_ sender: UISegmentedControl) {
 
         if sender.selectedSegmentIndex == 0 {
@@ -24,6 +28,8 @@ class TripRecordInfoViewController: UIViewController {
         super.viewDidLoad()
         startSum = 850
         needPaySum = startSum
+
+        self.title = tripRecord?.getFullName()
 
         reloadViewData()
     }

@@ -39,8 +39,8 @@ class BusTripTableViewController: UITableViewController {
     }
 
     private func getDataFromServer() {
-        let url = URL(string: "http://zavbus.team/api/curatorData")
-//        let url = URL(string: "http://localhost:8090/api/curatorData")
+//        let url = URL(string: "http://zavbus.team/api/curatorData")
+        let url = URL(string: "http://192.168.1.80:8090/api/curatorData")
         do {
             let data = try Data(contentsOf: url!)
             do {

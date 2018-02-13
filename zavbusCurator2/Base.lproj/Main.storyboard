@@ -44,7 +44,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="RSi-gJ-l7f" kind="show" identifier="tripRecords" id="bTV-oN-jnb"/>
+                                    <segue destination="F2I-X9-cWh" kind="show" identifier="tripRecords" id="Ubp-7w-9Ua"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -103,11 +103,12 @@
                             <outlet property="delegate" destination="RSi-gJ-l7f" id="y1p-VO-t6G"/>
                         </connections>
                     </tableView>
+                    <tabBarItem key="tabBarItem" title="Item" id="LbN-H5-og6"/>
                     <navigationItem key="navigationItem" title="Участники выезда" id="yaA-Sf-aCE"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R8j-Gf-NFx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-184" y="996"/>
+            <point key="canvasLocation" x="799" y="1340"/>
         </scene>
         <!--Record Info Controller-->
         <scene sceneID="dBF-6k-qcS">
@@ -153,7 +154,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q4F-B5-kfi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="606" y="995"/>
+            <point key="canvasLocation" x="1588" y="1340"/>
         </scene>
         <!--Record Edit Controller-->
         <scene sceneID="sbW-pU-6vJ">
@@ -258,23 +259,41 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vN8-I4-Gx7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1412" y="994.9025487256373"/>
+            <point key="canvasLocation" x="2423" y="1339"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="c3d-y3-v8V">
+        <!--Item 1-->
+        <scene sceneID="NZY-Zl-VnS">
             <objects>
-                <navigationController id="FU8-cL-r5H" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="mhZ-T3-KCd">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="RSi-gJ-l7f" kind="relationship" relationship="rootViewController" id="HTQ-dq-sSW"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Q42-SP-Dy3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="jRf-UG-dPG" customClass="TripSettingsController" customModule="zavbusCurator2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hH5-id-yjG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="5F0-yb-hEH"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 1" id="ua2-l7-9Vt"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="emL-u3-UR5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-940" y="995"/>
+            <point key="canvasLocation" x="799" y="516"/>
+        </scene>
+        <!--Trip Tab Bar Controller-->
+        <scene sceneID="T8W-pw-vcW">
+            <objects>
+                <tabBarController id="F2I-X9-cWh" customClass="TripTabBarController" customModule="zavbusCurator2" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="VYB-eq-eOe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="jRf-UG-dPG" kind="relationship" relationship="viewControllers" id="KF0-BK-p29"/>
+                        <segue destination="RSi-gJ-l7f" kind="relationship" relationship="viewControllers" id="joe-Sf-6YF"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="efJ-q1-Qsd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-183" y="889"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="KpO-lP-xJv">
@@ -293,7 +312,4 @@
             <point key="canvasLocation" x="-940" y="144"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="bTV-oN-jnb"/>
-    </inferredMetricsTieBreakers>
 </document>

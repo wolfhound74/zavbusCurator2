@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0B55F8112033391900B7FE81 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B55F8102033391900B7FE81 /* DataService.swift */; };
+		0B55F8132033443100B7FE81 /* TripTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B55F8122033443100B7FE81 /* TripTabBarController.swift */; };
+		0B55F815203345C500B7FE81 /* TripSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B55F814203345C500B7FE81 /* TripSettingsController.swift */; };
 		0B9A44B6202CA0AE00FB49B5 /* TripRecord+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9A44B2202CA0AE00FB49B5 /* TripRecord+CoreDataClass.swift */; };
 		0B9A44B7202CA0AE00FB49B5 /* TripRecord+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9A44B3202CA0AE00FB49B5 /* TripRecord+CoreDataProperties.swift */; };
 		0B9A44B8202CA0AE00FB49B5 /* Trip+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9A44B4202CA0AE00FB49B5 /* Trip+CoreDataClass.swift */; };
@@ -26,6 +28,8 @@
 
 /* Begin PBXFileReference section */
 		0B55F8102033391900B7FE81 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		0B55F8122033443100B7FE81 /* TripTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripTabBarController.swift; sourceTree = "<group>"; };
+		0B55F814203345C500B7FE81 /* TripSettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripSettingsController.swift; sourceTree = "<group>"; };
 		0B9A44B2202CA0AE00FB49B5 /* TripRecord+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TripRecord+CoreDataClass.swift"; sourceTree = "<group>"; };
 		0B9A44B3202CA0AE00FB49B5 /* TripRecord+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TripRecord+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		0B9A44B4202CA0AE00FB49B5 /* Trip+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Trip+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -103,6 +107,8 @@
 				BF8D0891DDE631EDC30F92AF /* RecordInfoController.swift */,
 				BF8D0A571D38403D59ABE8D8 /* RecordListController.swift */,
 				E733771D203225F8006BEE07 /* RecordEditController.swift */,
+				0B55F8122033443100B7FE81 /* TripTabBarController.swift */,
+				0B55F814203345C500B7FE81 /* TripSettingsController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -194,6 +200,8 @@
 				E733771E203225F8006BEE07 /* RecordEditController.swift in Sources */,
 				0B9A44B6202CA0AE00FB49B5 /* TripRecord+CoreDataClass.swift in Sources */,
 				0B55F8112033391900B7FE81 /* DataService.swift in Sources */,
+				0B55F8132033443100B7FE81 /* TripTabBarController.swift in Sources */,
+				0B55F815203345C500B7FE81 /* TripSettingsController.swift in Sources */,
 				0BAB5314201B6F6C0025E3AB /* zavbusCurator2.xcdatamodeld in Sources */,
 				0BAB530C201B6F6C0025E3AB /* AppDelegate.swift in Sources */,
 				BF8D03A1F3F30E07D7E92E2C /* TripListController.swift in Sources */,

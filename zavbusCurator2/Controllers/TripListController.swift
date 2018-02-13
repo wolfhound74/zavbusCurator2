@@ -64,7 +64,7 @@ class TripListController: UITableViewController {
         if segue.identifier == "tripRecords" {
             if let indexPath = tableView.indexPathForSelectedRow {
                 let trip = busTrips[(tableView.indexPathForSelectedRow?.row)!]
-                let controller = segue.destination as! RecordListController
+                let controller = segue.destination as! TripTabBarController
                 controller.records = (trip.records?.allObjects as! [TripRecord]).sorted { $0.lastName! < $1.lastName! }
                 controller.trip = trip
             }

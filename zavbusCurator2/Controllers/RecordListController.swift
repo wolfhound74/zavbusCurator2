@@ -1,7 +1,7 @@
 import UIKit
 import CoreData
 
-class TripRecordTableViewController: UITableViewController {
+class RecordListController: UITableViewController {
 
     var records = [TripRecord]()
     var trip: Trip?
@@ -35,7 +35,7 @@ class TripRecordTableViewController: UITableViewController {
         if segue.identifier == "tripRecord" {
             if let indexPath = tableView.indexPathForSelectedRow {
                 let record = records[indexPath.row]
-                let controller = segue.destination as! TripRecordInfoViewController
+                let controller = segue.destination as! RecordInfoController
 
                 controller.tripRecord = record
             }

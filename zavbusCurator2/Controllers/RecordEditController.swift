@@ -1,6 +1,6 @@
 import UIKit
 
-class EditRecordController: UITableViewController {
+class RecordEditController: UITableViewController {
 
     var tripRecord: TripRecord?
 

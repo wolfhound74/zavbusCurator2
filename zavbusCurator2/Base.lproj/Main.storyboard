@@ -14,7 +14,7 @@
         <!--Список выездов-->
         <scene sceneID="z9I-cy-a3x">
             <objects>
-                <tableViewController id="mnV-fa-p9u" customClass="BusTripTableViewController" customModule="zavbusCurator2" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="mnV-fa-p9u" customClass="TripListController" customModule="zavbusCurator2" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="K9y-Sc-tke">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -75,7 +75,7 @@
         <!--Участники выезда-->
         <scene sceneID="BVa-z6-X3g">
             <objects>
-                <tableViewController id="RSi-gJ-l7f" customClass="TripRecordTableViewController" customModule="zavbusCurator2" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="RSi-gJ-l7f" customClass="RecordListController" customModule="zavbusCurator2" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="34Z-b5-8gD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -94,7 +94,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="YRZ-Rp-u62" kind="show" id="m4P-I8-921"/>
+                                    <segue destination="YRZ-Rp-u62" kind="show" identifier="tripRecord" id="m4P-I8-921"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -109,10 +109,10 @@
             </objects>
             <point key="canvasLocation" x="-184" y="996"/>
         </scene>
-        <!--View Controller-->
+        <!--Record Info Controller-->
         <scene sceneID="dBF-6k-qcS">
             <objects>
-                <viewController id="YRZ-Rp-u62" sceneMemberID="viewController">
+                <viewController id="YRZ-Rp-u62" customClass="RecordInfoController" customModule="zavbusCurator2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pPN-lL-1x3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -155,10 +155,10 @@
             </objects>
             <point key="canvasLocation" x="606" y="995"/>
         </scene>
-        <!--Edit Record Controller-->
+        <!--Record Edit Controller-->
         <scene sceneID="sbW-pU-6vJ">
             <objects>
-                <tableViewController id="aKG-uZ-j6l" customClass="EditRecordController" customModule="zavbusCurator2" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="aKG-uZ-j6l" customClass="RecordEditController" customModule="zavbusCurator2" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="KUA-4R-ocS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="484"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -294,6 +294,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="HTQ-dq-sSW"/>
+        <segue reference="bTV-oN-jnb"/>
     </inferredMetricsTieBreakers>
 </document>

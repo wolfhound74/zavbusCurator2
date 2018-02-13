@@ -1,7 +1,7 @@
 import UIKit
 import CoreData
 
-class BusTripTableViewController: UITableViewController {
+class TripListController: UITableViewController {
 
     var busTrips = [Trip]()
 
@@ -70,7 +70,6 @@ class BusTripTableViewController: UITableViewController {
                         let tripRecordObj = TripRecord(entity: tripRecordEntity, insertInto: managedContext)
 
                         tripRecordObj.trip = tripObject
-                        tripObject.addToRecords(tripRecordObj)
 
                         tripRecordObj.firstName = record.object(forKey: "firstName") as? String
                         tripRecordObj.lastName = record.object(forKey: "lastName") as? String
@@ -78,6 +77,8 @@ class BusTripTableViewController: UITableViewController {
                         tripRecordObj.state = record.object(forKey: "state") as! Int32
                         tripRecordObj.status = record.object(forKey: "status") as! Int32
                         tripRecordObj.commentFromVk = record.object(forKey: "commentFromVk") as? String
+
+                        tripObject.addToRecords(tripRecordObj)
                     }
 
                     busTrips.append(tripObject)
@@ -126,16 +127,10 @@ class BusTripTableViewController: UITableViewController {
         if segue.identifier == "tripRecords" {
             if let indexPath = tableView.indexPathForSelectedRow {
                 let trip = busTrips[(tableView.indexPathForSelectedRow?.row)!]
-                let controller = segue.destination as! TripRecordTableViewController
+                let controller = segue.destination as! RecordListController
                 controller.records = trip.records?.allObjects as! [TripRecord]
                 controller.trip = trip
-
-//
-//                controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
-//                controller.navigationItem.leftItemsSupplementBackButton = true
             }
         }
     }
-
-
 }

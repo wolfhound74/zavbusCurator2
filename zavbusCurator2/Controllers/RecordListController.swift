@@ -6,10 +6,10 @@ class RecordListController: UITableViewController {
     var records = [TripRecord]()
     var trip: Trip?
 
-//    var selectedRider: TripRecord?
-
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        navigationItem.title = trip?.dates
     }
 
     override func didReceiveMemoryWarning() {

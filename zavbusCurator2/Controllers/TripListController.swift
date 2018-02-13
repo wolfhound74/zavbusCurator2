@@ -15,6 +15,7 @@ class TripListController: UITableViewController {
 
     @IBAction func reloadDataButton(_ sender: Any) {
         //todo сделать модульный диалог
+        getDataFromServer()
         loadFromCore()
         tableView.reloadData()
     }
@@ -64,7 +65,7 @@ class TripListController: UITableViewController {
             if let indexPath = tableView.indexPathForSelectedRow {
                 let trip = busTrips[(tableView.indexPathForSelectedRow?.row)!]
                 let controller = segue.destination as! RecordListController
-                controller.records = trip.records?.allObjects as! [TripRecord]
+                controller.records = (trip.records?.allObjects as! [TripRecord]).sorted { $0.lastName! < $1.lastName! }
                 controller.trip = trip
             }
         }

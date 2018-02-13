@@ -40,7 +40,7 @@ class BusTripTableViewController: UITableViewController {
 
     private func getDataFromServer() {
 //        let url = URL(string: "http://zavbus.team/api/curatorData")
-        let url = URL(string: "http://192.168.1.80:8090/api/curatorData")
+        let url = URL(string: "http://127.0.0.1:8090/api/curatorData")
         do {
             let data = try Data(contentsOf: url!)
             do {
@@ -77,6 +77,7 @@ class BusTripTableViewController: UITableViewController {
                         tripRecordObj.id = record.object(forKey: "id") as! Int64
                         tripRecordObj.state = record.object(forKey: "state") as! Int32
                         tripRecordObj.status = record.object(forKey: "status") as! Int32
+                        tripRecordObj.commentFromVk = record.object(forKey: "commentFromVk") as? String
                     }
 
                     busTrips.append(tripObject)
@@ -121,46 +122,6 @@ class BusTripTableViewController: UITableViewController {
         }
     }
 
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "tripRecords" {
             if let indexPath = tableView.indexPathForSelectedRow {
@@ -168,6 +129,8 @@ class BusTripTableViewController: UITableViewController {
                 let controller = segue.destination as! TripRecordTableViewController
                 controller.records = trip.records?.allObjects as! [TripRecord]
                 controller.trip = trip
+
+                controller.records
 //
 //                controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
 //                controller.navigationItem.leftItemsSupplementBackButton = true

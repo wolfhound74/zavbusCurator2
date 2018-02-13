@@ -31,8 +31,8 @@ class TripRecordTableViewController: UITableViewController {
         return cell
     }
 
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-       if segue.identifier == "tripRecord" {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "tripRecord" {
             if let indexPath = tableView.indexPathForSelectedRow {
                 let record = records[indexPath.row]
                 let controller = segue.destination as! TripRecordInfoViewController

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B55F8112033391900B7FE81 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B55F8102033391900B7FE81 /* DataService.swift */; };
 		0B9A44B6202CA0AE00FB49B5 /* TripRecord+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9A44B2202CA0AE00FB49B5 /* TripRecord+CoreDataClass.swift */; };
 		0B9A44B7202CA0AE00FB49B5 /* TripRecord+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9A44B3202CA0AE00FB49B5 /* TripRecord+CoreDataProperties.swift */; };
 		0B9A44B8202CA0AE00FB49B5 /* Trip+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9A44B4202CA0AE00FB49B5 /* Trip+CoreDataClass.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0B55F8102033391900B7FE81 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		0B9A44B2202CA0AE00FB49B5 /* TripRecord+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TripRecord+CoreDataClass.swift"; sourceTree = "<group>"; };
 		0B9A44B3202CA0AE00FB49B5 /* TripRecord+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TripRecord+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		0B9A44B4202CA0AE00FB49B5 /* Trip+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Trip+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -53,6 +55,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0B55F80F203338FC00B7FE81 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				0B55F8102033391900B7FE81 /* DataService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		0BAB52FF201B6F6C0025E3AB = {
 			isa = PBXGroup;
 			children = (
@@ -72,6 +82,7 @@
 		0BAB530A201B6F6C0025E3AB /* zavbusCurator2 */ = {
 			isa = PBXGroup;
 			children = (
+				0B55F80F203338FC00B7FE81 /* Services */,
 				0BAB530B201B6F6C0025E3AB /* AppDelegate.swift */,
 				0BAB530D201B6F6C0025E3AB /* ViewController.swift */,
 				0BAB530F201B6F6C0025E3AB /* Main.storyboard */,
@@ -182,6 +193,7 @@
 				0BAB530E201B6F6C0025E3AB /* ViewController.swift in Sources */,
 				E733771E203225F8006BEE07 /* RecordEditController.swift in Sources */,
 				0B9A44B6202CA0AE00FB49B5 /* TripRecord+CoreDataClass.swift in Sources */,
+				0B55F8112033391900B7FE81 /* DataService.swift in Sources */,
 				0BAB5314201B6F6C0025E3AB /* zavbusCurator2.xcdatamodeld in Sources */,
 				0BAB530C201B6F6C0025E3AB /* AppDelegate.swift in Sources */,
 				BF8D03A1F3F30E07D7E92E2C /* TripListController.swift in Sources */,

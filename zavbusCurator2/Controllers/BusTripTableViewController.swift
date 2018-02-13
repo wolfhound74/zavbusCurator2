@@ -130,7 +130,6 @@ class BusTripTableViewController: UITableViewController {
                 controller.records = trip.records?.allObjects as! [TripRecord]
                 controller.trip = trip
 
-                controller.records
 //
 //                controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
 //                controller.navigationItem.leftItemsSupplementBackButton = true

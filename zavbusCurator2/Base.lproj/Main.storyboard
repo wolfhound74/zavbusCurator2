@@ -103,7 +103,7 @@
                             <outlet property="delegate" destination="RSi-gJ-l7f" id="y1p-VO-t6G"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="LbN-H5-og6"/>
+                    <tabBarItem key="tabBarItem" badgeValue="Список" systemItem="mostRecent" id="LbN-H5-og6"/>
                     <navigationItem key="navigationItem" title="Участники выезда" id="yaA-Sf-aCE"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R8j-Gf-NFx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -261,21 +261,30 @@
             </objects>
             <point key="canvasLocation" x="2423" y="1339"/>
         </scene>
-        <!--Item 1-->
+        <!--Trip Settings Controller-->
         <scene sceneID="NZY-Zl-VnS">
             <objects>
                 <viewController id="jRf-UG-dPG" customClass="TripSettingsController" customModule="zavbusCurator2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hH5-id-yjG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TExt" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sqq-RW-Rbp">
+                                <rect key="frame" x="157" y="264" width="162" height="133"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="5F0-yb-hEH"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="ua2-l7-9Vt"/>
+                    <tabBarItem key="tabBarItem" systemItem="downloads" id="ua2-l7-9Vt"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="emL-u3-UR5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="799" y="516"/>
+            <point key="canvasLocation" x="797.60000000000002" y="515.8920539730135"/>
         </scene>
         <!--Trip Tab Bar Controller-->
         <scene sceneID="T8W-pw-vcW">

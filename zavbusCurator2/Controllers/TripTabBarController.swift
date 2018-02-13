@@ -11,4 +11,15 @@ import UIKit
 class TripTabBarController: UITabBarController {
     var records = [TripRecord]()
     var trip: Trip?
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+
+        for var vc in viewControllers as! [ViewController] {
+            if vc.isKindOfClass(TripSettingsController) {
+
+            }
+        }
+    }
 }

@@ -7,6 +7,8 @@ class TripListController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.navigationController?.navigationBar.isTranslucent = false;
     }
 
     override func didReceiveMemoryWarning() {

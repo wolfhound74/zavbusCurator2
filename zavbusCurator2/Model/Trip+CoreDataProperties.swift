@@ -2,7 +2,7 @@
 //  Trip+CoreDataProperties.swift
 //  zavbusCurator2
 //
-//  Created by Vladimir Maslov on 08.02.2018.
+//  Created by Vladimir Maslov on 14.02.2018.
 //  Copyright © 2018 Vladimir Maslov. All rights reserved.
 //
 //

@@ -103,7 +103,7 @@
                             <outlet property="delegate" destination="RSi-gJ-l7f" id="y1p-VO-t6G"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Cписок" id="LbN-H5-og6"/>
+                    <tabBarItem key="tabBarItem" title="Cписок" image="records" id="LbN-H5-og6"/>
                     <navigationItem key="navigationItem" title="Участники выезда" id="yaA-Sf-aCE"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R8j-Gf-NFx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -271,7 +271,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="eF5-XZ-jgZ"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Инфо" id="cci-zb-6WR"/>
+                    <tabBarItem key="tabBarItem" title="Инфо" image="tripInfo" id="cci-zb-6WR"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="goA-q2-YwW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -306,7 +306,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="8tm-z8-GKV"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Настройки" id="Ac8-Yp-5fp"/>
+                    <tabBarItem key="tabBarItem" title="Настройки" image="tripOptions" id="Ac8-Yp-5fp"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Zy-1K-v9E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -329,4 +329,9 @@
             <point key="canvasLocation" x="-940" y="144"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="records" width="30" height="30"/>
+        <image name="tripInfo" width="30" height="30"/>
+        <image name="tripOptions" width="30" height="30"/>
+    </resources>
 </document>

@@ -103,7 +103,7 @@
                             <outlet property="delegate" destination="RSi-gJ-l7f" id="y1p-VO-t6G"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Cписок" image="records" id="LbN-H5-og6"/>
+                    <tabBarItem key="tabBarItem" title="Cписок" image="tripRecords" id="LbN-H5-og6"/>
                     <navigationItem key="navigationItem" title="Участники выезда" id="yaA-Sf-aCE"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R8j-Gf-NFx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -330,8 +330,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="records" width="30" height="30"/>
         <image name="tripInfo" width="30" height="30"/>
         <image name="tripOptions" width="30" height="30"/>
+        <image name="tripRecords" width="30" height="30"/>
     </resources>
 </document>

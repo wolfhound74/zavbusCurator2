@@ -9,7 +9,7 @@ class RecordListController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationItem.title = trip?.dates
+//        navigationItem.title = trip?.dates
     }
 
     override func didReceiveMemoryWarning() {

@@ -1,11 +1,3 @@
-//
-//  BarController.swift
-//  zavbusCurator2
-//
-//  Created by Vladimir Maslov on 13.02.2018.
-//  Copyright © 2018 Vladimir Maslov. All rights reserved.
-//
-
 import UIKit
 
 class TripTabBarController: UITabBarController {
@@ -15,11 +7,15 @@ class TripTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        navigationItem.title = trip?.dates
 
-        for var vc in viewControllers as! [ViewController] {
-            if vc.isKindOfClass(TripSettingsController) {
-
-            }
+        for var vc in viewControllers! {
+            
+           if vc is RecordListController {
+               let vc = vc as! RecordListController
+               vc.records = self.records
+               vc.trip = self.trip
+           }
         }
     }
 }

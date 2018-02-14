@@ -2,8 +2,8 @@ import UIKit
 import CoreData
 
 func getDataFromServer() {
-//        let url = URL(string: "http://zavbus.team/api/curatorData")
-    let url = URL(string: "http://127.0.0.1:8090/api/curatorData")
+        let url = URL(string: "http://cp.zavbus.team/api/curatorData")
+//    let url = URL(string: "http://127.0.0.1:8090/api/curatorData")
     do {
         let data = try Data(contentsOf: url!)
         do {

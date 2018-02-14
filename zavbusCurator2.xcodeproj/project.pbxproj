@@ -23,6 +23,7 @@
 		BF8D03A1F3F30E07D7E92E2C /* TripListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8D07E2958748AB7A424C19 /* TripListController.swift */; };
 		BF8D0BABDB1DDC84B01358D5 /* RecordListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8D0A571D38403D59ABE8D8 /* RecordListController.swift */; };
 		BF8D0C192081F8BC88E89328 /* RecordInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8D0891DDE631EDC30F92AF /* RecordInfoController.swift */; };
+		DE2457A788CE0439094A3810 /* TripInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2457E5561F66B880793175 /* TripInfoController.swift */; };
 		E733771E203225F8006BEE07 /* RecordEditController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E733771D203225F8006BEE07 /* RecordEditController.swift */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +46,7 @@
 		BF8D07E2958748AB7A424C19 /* TripListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripListController.swift; sourceTree = "<group>"; };
 		BF8D0891DDE631EDC30F92AF /* RecordInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordInfoController.swift; sourceTree = "<group>"; };
 		BF8D0A571D38403D59ABE8D8 /* RecordListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordListController.swift; sourceTree = "<group>"; };
+		DE2457E5561F66B880793175 /* TripInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripInfoController.swift; sourceTree = "<group>"; };
 		E733771D203225F8006BEE07 /* RecordEditController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordEditController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -109,6 +111,7 @@
 				E733771D203225F8006BEE07 /* RecordEditController.swift */,
 				0B55F8122033443100B7FE81 /* TripTabBarController.swift */,
 				0B55F814203345C500B7FE81 /* TripSettingsController.swift */,
+				DE2457E5561F66B880793175 /* TripInfoController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -210,6 +213,7 @@
 				0B9A44B8202CA0AE00FB49B5 /* Trip+CoreDataClass.swift in Sources */,
 				0B9A44B9202CA0AE00FB49B5 /* Trip+CoreDataProperties.swift in Sources */,
 				0B9A44B7202CA0AE00FB49B5 /* TripRecord+CoreDataProperties.swift in Sources */,
+				DE2457A788CE0439094A3810 /* TripInfoController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

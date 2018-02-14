@@ -8,7 +8,7 @@ class RecordEditController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        comment.text = tripRecord?.commentFromVk
+//        comment.text = tripRecord?.commentFromVk
 
     }
 

@@ -10,7 +10,9 @@ class RecordInfoController: UIViewController {
         navigationItem.title = tripRecord?.getFullName()
 
     }
-
+    @IBAction func doPay(_ sender: Any) {
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }

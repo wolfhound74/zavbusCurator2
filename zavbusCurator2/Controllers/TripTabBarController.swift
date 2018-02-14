@@ -8,6 +8,7 @@ class TripTabBarController: UITabBarController {
         super.viewDidLoad()
 
         navigationItem.title = trip?.dates
+        self.navigationController?.navigationBar.isTranslucent = false;
 
         for var vc in viewControllers! {
             

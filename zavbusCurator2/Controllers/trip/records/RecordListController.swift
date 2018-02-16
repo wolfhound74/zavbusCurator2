@@ -32,7 +32,7 @@ class RecordListController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tripRecordCell", for: indexPath) as! RecordCell
 
-        let recordItem = self.records[indexPath.row]
+        let recordItem = self.records[indexPath.row] as TripRecord
 
         cell.fullNameLabel?.text = recordItem.lastName! + " " + recordItem.firstName!
         cell.detailsLabel?.text = displayStatuses[recordItem.status]
@@ -42,8 +42,8 @@ class RecordListController: UITableViewController {
         if (recordItem.needMeal) {
             cell.detailsLabel?.text?.append(" | Обед")
         }
-        if (recordItem.needStuff) {
-            cell.detailsLabel?.text?.append(" | Прокат")
+        if (recordItem.confirmed) {
+            cell.detailsLabel?.text?.append(" | Оплачено \(recordItem.sumForPay)")
         }
 
         return cell

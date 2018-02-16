@@ -132,6 +132,9 @@
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Cписок" image="tripRecords" id="LbN-H5-og6"/>
                     <navigationItem key="navigationItem" title="Участники выезда" id="yaA-Sf-aCE"/>
+                    <connections>
+                        <outlet property="searchBar" destination="rAL-fF-d7T" id="rG7-wY-R0i"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R8j-Gf-NFx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -1,13 +1,21 @@
 import UIKit
 import CoreData
 
-class RecordListController: UITableViewController {
+class RecordListController: UITableViewController, UISearchBarDelegate {
 
     var records = [TripRecord]()
     var trip: Trip?
 
+    @IBOutlet weak var searchBar: UISearchBar!
+
+    var isSearching = false
+    var filteredRecords = [TripRecord]()
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        searchBar.delegate = self
+        searchBar.returnKeyType = UIReturnKeyType.done
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -26,13 +34,18 @@ class RecordListController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
+        if isSearching {
+            return filteredRecords.count
+        }
+
         return trip!.records!.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tripRecordCell", for: indexPath) as! RecordCell
 
-        let recordItem = self.records[indexPath.row] as TripRecord
+        let recordItem = (!isSearching ? self.records[indexPath.row] : self.filteredRecords[indexPath.row]) as TripRecord
 
         cell.fullNameLabel?.text = recordItem.lastName! + " " + recordItem.firstName!
         cell.detailsLabel?.text = displayStatuses[recordItem.status]
@@ -78,6 +91,23 @@ class RecordListController: UITableViewController {
             }
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
+        }
+    }
+
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        var text:String = searchBar.text!
+
+        if text == nil || text == "" {
+            isSearching = false
+            view.endEditing(true)
+            tableView.reloadData()
+        } else {
+            isSearching = true
+            filteredRecords = records.filter {
+                ($0.lastName?.contains(text))! || ($0.firstName?.contains(text))!
+            }
+
+            tableView.reloadData()
         }
     }
 }

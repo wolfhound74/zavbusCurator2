@@ -1,7 +1,7 @@
 import UIKit
 
 class TripTabBarController: UITabBarController {
-    var records = [TripRecord]()
+//    var records = [TripRecord]()
     var trip: Trip?
 
     override func viewDidLoad() {
@@ -13,7 +13,7 @@ class TripTabBarController: UITabBarController {
         for var vc in viewControllers! {
             if vc is RecordListController {
                 let vc = vc as! RecordListController
-                vc.records = self.records
+//                vc.records = self.records
                 vc.trip = self.trip
             }
             if vc is TripInfoContainer {

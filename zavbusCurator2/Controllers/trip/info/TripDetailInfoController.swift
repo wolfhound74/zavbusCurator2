@@ -6,25 +6,53 @@ class TripDetailInfoController: UITableViewController {
 
     @IBOutlet weak var rediresCountLabel: UILabel!
     @IBOutlet weak var beginnersCountLabel: UILabel!
+    @IBOutlet weak var busOnlyLabel: UILabel!
     @IBOutlet weak var resultSumLabel: UILabel!
 
+    @IBOutlet weak var mealsCountLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
 
-        let ridersCount = trip?.records?.filter {
-            ($0 as! TripRecord).status == 4
-        }.count
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
 
-        let beginnersCount = trip?.records?.filter {
-            ($0 as! TripRecord).status == 5
-        }.count
+        let ridersNumber = self.countMembers(status: 4)
+        let beginnersNumber = self.countMembers(status: 5)
+        let busOnlyNumber = self.countMembers(status: 6)
 
-        rediresCountLabel.text = "\(ridersCount!)"
-        beginnersCountLabel.text = "\(beginnersCount!)"
+        let mealsNumber = self.countMeals()
+
+        rediresCountLabel.text = "\(ridersNumber)"
+        beginnersCountLabel.text = "\(beginnersNumber)"
+        mealsCountLabel.text = "\(mealsNumber)"
+        busOnlyLabel.text = "\(busOnlyNumber)"
 
         let paidRecs = trip?.records?.filter {
-            ($0 as! TripRecord).paidSum > 0
+            ($0 as! TripRecord).confirmed == true
+        } as! [TripRecord]
+
+        var paidSum: Int32 = 0
+
+        for var rec in paidRecs {
+            paidSum += rec.sumForPay
         }
 
+        resultSumLabel.text = "\(paidSum)"
+    }
+
+    func countMembers(status: Int) -> Int {
+        return (trip?.records?.filter {
+            let tr = $0 as! TripRecord
+            return tr.status == status && tr.confirmed
+        }.count)!
+    }
+
+    func countMeals() -> Int{
+        return (trip?.records?.filter {
+            let tr = $0 as! TripRecord
+            return tr.needMeal && tr.confirmed
+        }.count)!
     }
 }

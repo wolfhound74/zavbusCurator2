@@ -1,5 +1,5 @@
 //
-//  Trip+CoreDataClass.swift
+//  TripProgram+CoreDataClass.swift
 //  zavbusCurator2
 //
 //  Created by владимир on 15.02.2018.
@@ -10,7 +10,7 @@
 import Foundation
 import CoreData
 
-@objc(Trip)
-public class Trip: NSManagedObject {
+@objc(TripProgram)
+public class TripProgram: NSManagedObject {
 
 }

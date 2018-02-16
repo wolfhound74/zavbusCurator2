@@ -4,15 +4,32 @@ class RecordInfoController: UIViewController {
 
     var tripRecord: TripRecord?
 
+    @IBOutlet weak var confirmButton: UIButton!
+
+    @IBAction func confrimRecordAction(_ sender: UIButton) {
+        tripRecord?.confirmed = !(tripRecord?.confirmed)!
+        tripRecord?.save()
+        changeButtonState()
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationItem.title = tripRecord?.getFullName()
+        navigationItem.title = (tripRecord?.lastName)! + " " + (tripRecord?.firstName)!
 
+        changeButtonState()
     }
-    @IBAction func doPay(_ sender: Any) {
+
+    func changeButtonState() {
+        if (tripRecord?.confirmed)! {
+            confirmButton.setTitle("Отменить", for: .normal)
+            confirmButton.backgroundColor = UIColor.red
+        } else {
+            confirmButton.setTitle("Подтвердить", for: .normal)
+            confirmButton.backgroundColor = UIColor.blue
+        }
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }

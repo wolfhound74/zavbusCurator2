@@ -36,7 +36,7 @@ class TripListController: UITableViewController {
 
         let trip = busTrips[indexPath.row]
         cell.textLabel?.text = trip.title
-        cell.detailTextLabel?.text = trip.dates
+        cell.detailTextLabel?.text = trip.dates! + " | Участники: \(trip.memberNumber)"
 
         return cell
     }
@@ -67,7 +67,7 @@ class TripListController: UITableViewController {
             if let indexPath = tableView.indexPathForSelectedRow {
                 let trip = busTrips[(tableView.indexPathForSelectedRow?.row)!]
                 let controller = segue.destination as! TripTabBarController
-                controller.records = (trip.records?.allObjects as! [TripRecord]).sorted { $0.lastName! < $1.lastName! }
+//                controller.records = (trip.records?.allObjects as! [TripRecord]).sorted { $0.lastName! < $1.lastName! }
                 controller.trip = trip
             }
         }

@@ -80,7 +80,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" misplaced="YES" id="rAL-fF-d7T">
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="rAL-fF-d7T">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits"/>
@@ -358,12 +358,23 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1800" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yJo-7l-lzW">
-                                                    <rect key="frame" x="308" y="8" width="51" height="27"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="1800" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yJo-7l-lzW">
+                                                    <rect key="frame" x="201" y="8" width="51" height="27"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fn9-CP-Y5Z">
+                                                    <rect key="frame" x="262" y="6" width="97" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="resultSumChangeAction:" destination="aKG-uZ-j6l" eventType="editingChanged" id="1oh-hd-3vE"/>
+                                                        <action selector="resultSumChangeAction:" destination="aKG-uZ-j6l" eventType="editingDidEnd" id="jxW-fS-PDz"/>
+                                                    </connections>
+                                                </textField>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="UYy-xi-GtA" firstAttribute="leading" secondItem="8Mw-bb-XJc" secondAttribute="leading" constant="16" id="0P9-E5-ghg"/>
@@ -436,6 +447,7 @@
                         <outlet property="orderedKitNameCell" destination="7re-qQ-Nw7" id="llz-8I-cMH"/>
                         <outlet property="paidBonusesCell" destination="H5p-YQ-XPL" id="IRF-wY-tS2"/>
                         <outlet property="resultSum" destination="yJo-7l-lzW" id="7SK-em-CyQ"/>
+                        <outlet property="resultSumInput" destination="Fn9-CP-Y5Z" id="8Ta-XC-Obx"/>
                         <outlet property="statusSegment" destination="NMJ-4L-ClN" id="FND-ts-ZTh"/>
                         <outlet property="usedBonuses" destination="gWX-wZ-C9O" id="5oj-4a-8GC"/>
                     </connections>

@@ -15,6 +15,7 @@ class RecordListController: UITableViewController, UISearchBarDelegate {
         super.viewDidLoad()
 
         searchBar.delegate = self
+        searchBar.showsCancelButton = true
         searchBar.returnKeyType = UIReturnKeyType.done
     }
 
@@ -65,7 +66,7 @@ class RecordListController: UITableViewController, UISearchBarDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "tripRecord" {
             if let indexPath = tableView.indexPathForSelectedRow {
-                let record = records[indexPath.row]
+                let record = (!isSearching ? self.records[indexPath.row] : self.filteredRecords[indexPath.row]) as TripRecord
                 let controller = segue.destination as! RecordInfoController
 
                 controller.tripRecord = record
@@ -95,19 +96,28 @@ class RecordListController: UITableViewController, UISearchBarDelegate {
     }
 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        var text:String = searchBar.text!
+        var text: String = searchBar.text!
 
         if text == nil || text == "" {
             isSearching = false
-            view.endEditing(true)
-            tableView.reloadData()
+//            view.endEditing(true)
         } else {
             isSearching = true
             filteredRecords = records.filter {
                 ($0.lastName?.contains(text))! || ($0.firstName?.contains(text))!
             }
-
-            tableView.reloadData()
         }
+        tableView.reloadData()
+    }
+
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        // Stop doing the search stuff
+        // and clear the text in the search bar
+        searchBar.text = ""
+        isSearching = false
+        view.endEditing(true)
+        tableView.reloadData()
+//        searchBar.showsCancelButton = false
+        // You could also change the position, frame etc of the searchBar
     }
 }

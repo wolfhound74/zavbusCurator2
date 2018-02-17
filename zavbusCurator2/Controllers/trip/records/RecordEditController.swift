@@ -9,6 +9,7 @@ class RecordEditController: UITableViewController {
     @IBOutlet weak var orderedKitNameCell: UITableViewCell!
     @IBOutlet weak var comment: UILabel!
 
+//селекторы смены состония записи
     @IBOutlet weak var statusSegment: UISegmentedControl!
     @IBOutlet weak var needStuffSwitch: UISwitch!
     @IBOutlet weak var needMealSwitch: UISwitch!
@@ -20,10 +21,18 @@ class RecordEditController: UITableViewController {
     @IBOutlet weak var paidBonusesCell: UIView!
 
     @IBAction func changeProgramAction(_ sender: UISegmentedControl) {
-        let i = sender.selectedSegmentIndex
+        changeTripRecordState()
+    }
 
-        changeProgram(status: statusesIndex[i] as! Int32)
-        updateResultSum()
+    @IBAction func changeOptionsAction(_ sender: UISwitch) {
+        changeTripRecordState()
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        initTripRecordState()
+        tableView.reloadData()
     }
 
     @IBAction func resultSumChangeAction(_ sender: UITextField) {
@@ -36,59 +45,8 @@ class RecordEditController: UITableViewController {
         tripRecord?.save()
     }
 
-    @IBAction func changeOptionsAction(_ sender: UISwitch) {
-        tripRecord?.needStuff = needStuffSwitch.isOn
-        tripRecord?.needMeal = needMealSwitch.isOn
-        updateResultSum()
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        resultSumInput.keyboardType = UIKeyboardType.numberPad
-
-        orderedKitNameCell.textLabel?.text = tripRecord?.orderedKit
-
-        needStuffSwitch.isOn = (tripRecord?.needStuff)!
-        needMealSwitch.isOn = (tripRecord?.needMeal)!
-        needInsuranceSwitch.isOn = false
-
-        if [4, 5, 6].contains(tripRecord!.status) {
-            statusSegment.selectedSegmentIndex = statusesIndex.filter {
-                $0.value == tripRecord!.status
-            }.first?.key as! Int
-        }
-
-        if (tripRecord?.payedBonuses == 0) {
-//            tableView.willRemoveSubview(paidBonusesCell)
-            paidBonusesCell.removeFromSuperview()
-        } else {
-            usedBonuses.text = "\((tripRecord?.payedBonuses)!)"
-        }
-
-        changeProgram(status: (tripRecord?.status)!)
-        updateResultSum()
-
-        tableView.reloadData()
-    }
-
-    func changeProgram(status: Int32) {
-        if !([4, 5, 6].contains(tripRecord!.status)) {
-            return
-        }
-
-
-        self.tripProgram = tripRecord?.trip?.programs?.filter {
-            ($0 as! TripProgram).status == status
-        }.first as! TripProgram
-
-        tripRecord?.status = status
-
-        updateResultSum()
-    }
-
     func updateResultSum() {
-        if !([4, 5, 6].contains(tripRecord!.status)) {
+        if !(tripRecord?.isJustTripMember())! {
             return
         }
         var sumForPay: Int32 = 0
@@ -103,6 +61,9 @@ class RecordEditController: UITableViewController {
             if (needMealSwitch.isOn) {
                 sumForPay += (tripProgram?.mealPrice)!
             }
+            if (needInsuranceSwitch.isOn) {
+                sumForPay += (tripProgram?.insurancePrice)!
+            }
             sumForPay -= (tripRecord?.payedBonuses)!
             sumForPay -= (tripRecord?.paidSum)!
 
@@ -114,6 +75,39 @@ class RecordEditController: UITableViewController {
 
         resultSum.text = "\(sumForPay)"
         resultSumInput.text = "\(sumForPay)"
+    }
+
+    private func initTripRecordState() {
+        resultSumInput.keyboardType = UIKeyboardType.numberPad
+
+        orderedKitNameCell.textLabel?.text = tripRecord?.orderedKit
+
+        needStuffSwitch.isOn = (tripRecord?.needStuff)!
+        needMealSwitch.isOn = (tripRecord?.needMeal)!
+        needInsuranceSwitch.isOn = false
+
+        usedBonuses.text = "\((tripRecord?.payedBonuses)!)"
+
+        tripProgram = tripRecord?.getTripProgram()
+
+        if tripProgram != nil && tripRecord!.isJustTripMember() {
+            statusSegment.selectedSegmentIndex = (tripProgram?.getIndexByCurrentStatus())!
+            updateResultSum()
+        }
+    }
+
+    private func changeTripRecordState() {
+        if (tripRecord?.isJustTripMember())! {
+            tripRecord?.status = statusesIndex[statusSegment.selectedSegmentIndex]!
+            tripProgram = tripRecord?.getTripProgram()
+        }
+
+        tripRecord?.needStuff = needStuffSwitch.isOn
+        tripRecord?.needMeal = needMealSwitch.isOn
+        tripRecord?.needInsurance = needInsuranceSwitch.isOn
+        tripRecord?.save()
+
+        updateResultSum()
     }
 
 

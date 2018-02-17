@@ -2,7 +2,7 @@ import UIKit
 import CoreData
 
 func getDataFromServer() {
-        let url = URL(string: "http://cp.zavbus.team/api/curatorData")
+    let url = URL(string: "http://cp.zavbus.team/api/curatorData")
 //    let url = URL(string: "http://127.0.0.1:8090/api/curatorData")
 //    let url = URL(string: "http://192.168.1.88:8090/api/curatorData")
     do {
@@ -33,9 +33,9 @@ func getDataFromServer() {
                 tripObject.kitNumber = trip.object(forKey: "kitNumber") as! Int32
 
                 // пока хардкод и такая логика
-                tripObject.addToPrograms(getTripProgram(status: 4, basicPrice: 1800, stuffPrice: 400, mealPrice: 200, managedContext: managedContext))
-                tripObject.addToPrograms(getTripProgram(status: 5, basicPrice: 1500, stuffPrice: 0, mealPrice: 200, managedContext: managedContext))
-                tripObject.addToPrograms(getTripProgram(status: 6, basicPrice: 850, stuffPrice: 400, mealPrice: 200, managedContext: managedContext))
+                tripObject.addToPrograms(getTripProgram(status: 4, basicPrice: 1800, stuffPrice: 400, mealPrice: 200, insurancePrice: 50, managedContext: managedContext))
+                tripObject.addToPrograms(getTripProgram(status: 5, basicPrice: 1500, stuffPrice: 0, mealPrice: 200, insurancePrice: 50, managedContext: managedContext))
+                tripObject.addToPrograms(getTripProgram(status: 6, basicPrice: 850, stuffPrice: 400, mealPrice: 200, insurancePrice: 50, managedContext: managedContext))
 
                 for var record in trip.object(forKey: "records") as! Array<NSDictionary> {
                     let tripRecordEntity = NSEntityDescription.entity(forEntityName: "TripRecord", in: managedContext)!
@@ -71,7 +71,8 @@ func getDataFromServer() {
 }
 
 // пока хардкод и такая логика
-private func getTripProgram(status: Int32, basicPrice: Int32, stuffPrice: Int32, mealPrice: Int32, managedContext: NSManagedObjectContext) -> TripProgram {
+private func getTripProgram(status: Int32, basicPrice: Int32, stuffPrice: Int32, mealPrice: Int32, insurancePrice: Int32,
+                            managedContext: NSManagedObjectContext) -> TripProgram {
     let tpEntity1 = NSEntityDescription.entity(forEntityName: "TripProgram", in: managedContext)!
     let obj1 = TripProgram(entity: tpEntity1, insertInto: managedContext)
 
@@ -79,6 +80,8 @@ private func getTripProgram(status: Int32, basicPrice: Int32, stuffPrice: Int32,
     obj1.basicPrice = basicPrice
     obj1.stuffPrice = stuffPrice
     obj1.mealPrice = mealPrice
+    obj1.mealPrice = mealPrice
+    obj1.insurancePrice = insurancePrice
 
     return obj1
 }

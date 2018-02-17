@@ -18,4 +18,15 @@ public class TripRecord: NSManagedObject {
         } catch {
         }
     }
+
+    func isJustTripMember() -> Bool {
+        return [4, 5, 6].contains(status)
+    }
+
+    func getTripProgram() -> TripProgram {
+        return trip?.programs?.filter {
+            ($0 as! TripProgram).status == status
+        }.first as! TripProgram
+    }
+
 }

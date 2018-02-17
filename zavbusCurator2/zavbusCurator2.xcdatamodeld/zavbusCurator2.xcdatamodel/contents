@@ -11,6 +11,7 @@
     </entity>
     <entity name="TripProgram" representedClassName="TripProgram" syncable="YES">
         <attribute name="basicPrice" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="insurancePrice" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="mealPrice" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="status" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="stuffPrice" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -24,6 +25,7 @@
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="mainRiderId" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="needInsurance" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="needMeal" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="needStuff" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="orderedKit" optional="YES" attributeType="String" syncable="YES"/>
@@ -39,7 +41,7 @@
     </entity>
     <elements>
         <element name="Trip" positionX="-63" positionY="-18" width="128" height="150"/>
-        <element name="TripProgram" positionX="-54" positionY="135" width="128" height="120"/>
-        <element name="TripRecord" positionX="-63" positionY="9" width="128" height="330"/>
+        <element name="TripProgram" positionX="-54" positionY="135" width="128" height="135"/>
+        <element name="TripRecord" positionX="-63" positionY="9" width="128" height="345"/>
     </elements>
 </model>

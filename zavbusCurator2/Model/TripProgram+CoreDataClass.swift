@@ -12,5 +12,9 @@ import CoreData
 
 @objc(TripProgram)
 public class TripProgram: NSManagedObject {
-
+    func getIndexByCurrentStatus() -> Int {
+        return statusesIndex.filter {
+            $0.value == status
+        }.first?.key as! Int
+    }
 }

@@ -1,6 +1,6 @@
 import UIKit
 
-class RecordEditController: UITableViewController {
+class RecordEditController: UITableViewController, UITextFieldDelegate {
 
     var tripRecord: TripRecord?
     var tripProgram: TripProgram?
@@ -15,7 +15,6 @@ class RecordEditController: UITableViewController {
     @IBOutlet weak var needMealSwitch: UISwitch!
     @IBOutlet weak var needInsuranceSwitch: UISwitch!
 
-    @IBOutlet weak var resultSum: UILabel!
     @IBOutlet weak var resultSumInput: UITextField!
     @IBOutlet weak var usedBonuses: UILabel!
     @IBOutlet weak var paidBonusesCell: UIView!
@@ -30,6 +29,9 @@ class RecordEditController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        resultSumInput.delegate = self
+        resultSumInput.keyboardType = UIKeyboardType.numberPad
 
         initTripRecordState()
         tableView.reloadData()
@@ -73,12 +75,10 @@ class RecordEditController: UITableViewController {
             sumForPay = (tripRecord?.sumForPay)!
         }
 
-        resultSum.text = "\(sumForPay)"
         resultSumInput.text = "\(sumForPay)"
     }
 
     private func initTripRecordState() {
-        resultSumInput.keyboardType = UIKeyboardType.numberPad
 
         orderedKitNameCell.textLabel?.text = tripRecord?.orderedKit
 
@@ -110,5 +110,13 @@ class RecordEditController: UITableViewController {
         updateResultSum()
     }
 
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+        super.touchesBegan(touches, with: event)
+    }
 
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        resultSumInput.resignFirstResponder()
+        return (true)
+    }
 }

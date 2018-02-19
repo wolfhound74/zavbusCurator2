@@ -19,11 +19,12 @@ class RecordDetailController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var resultSumInput: UITextField!
     @IBOutlet weak var sumChangeInput: UITextField!
     @IBOutlet weak var usedBonuses: UILabel!
-    
+
     @IBOutlet weak var hiddenBlock: UIView!
-    
+
     //кнопка подтверждения
     @IBOutlet weak var confirmButton: UIButton!
+
     @IBAction func confirmRecordAction(_ sender: UIButton) {
         tripRecord?.confirmed = !(tripRecord?.confirmed)!
 
@@ -62,19 +63,25 @@ class RecordDetailController: UIViewController, UITextFieldDelegate {
     }
 
     @IBAction func resultSumAction(_ sender: UITextField) {
-        var sumForPay: Int32 = 0
-        if (sender.text != "") {
-            sumForPay = Int32.init(sender.text!)!
+        if let sm = Int32.init(sender.text!) {
+            tripRecord?.sumForPay = sm
+            tripRecord?.save()
         }
+    }
 
-        tripRecord?.sumForPay = sumForPay
-        tripRecord?.save()
+    @IBAction func sumChangeAction(_ sender: UITextField) {
+        let text = sender.text != nil && sender.text != "" ? sender.text : "0"
+
+        if let sm = Int32.init(text!) {
+            tripRecord?.sumChange = sm
+            tripRecord?.save()
+        }
     }
 
     func updateResultSum() {
         if !(tripRecord?.isJustTripMember())! {
             resultSumInput.text = "0"
-            sumChangeInput.text = "0"
+            sumChangeInput.text = ""
             return
         }
         var sumForPay: Int32 = 0
@@ -102,7 +109,7 @@ class RecordDetailController: UIViewController, UITextFieldDelegate {
         }
 
         resultSumInput.text = "\(sumForPay)"
-        sumChangeInput.text = "\(tripRecord!.sumChange)"
+        sumChangeInput.text = tripRecord!.sumChange > 0 ? "\(tripRecord!.sumChange)" : ""
     }
 
     private func initTripRecordState() {

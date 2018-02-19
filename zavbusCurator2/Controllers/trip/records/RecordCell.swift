@@ -13,6 +13,8 @@ class RecordCell: UITableViewCell {
     @IBOutlet weak var fullNameLabel: UILabel!
     @IBOutlet weak var detailsLabel: UILabel!
     @IBOutlet weak var paidView: UIImageView!
+    @IBOutlet weak var sumChangeLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
 

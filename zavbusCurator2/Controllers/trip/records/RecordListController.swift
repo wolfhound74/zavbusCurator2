@@ -60,6 +60,8 @@ class RecordListController: UITableViewController, UISearchBarDelegate {
             cell.detailsLabel?.text?.append(" | Оплачено \(recordItem.sumForPay)")
         }
 
+        cell.sumChangeLabel.text = recordItem.sumChange > 0 && recordItem.confirmed ? "(Сдача \(recordItem.sumChange))" : ""
+
         return cell
     }
 

@@ -17,6 +17,7 @@ class RecordDetailController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var needInsuranceSwitch: UISwitch!
 
     @IBOutlet weak var resultSumInput: UITextField!
+    @IBOutlet weak var sumChangeInput: UITextField!
     @IBOutlet weak var usedBonuses: UILabel!
     
     @IBOutlet weak var hiddenBlock: UIView!
@@ -28,6 +29,10 @@ class RecordDetailController: UIViewController, UITextFieldDelegate {
 
         if let sm = Int32.init(resultSumInput.text!) {
             tripRecord?.sumForPay = sm
+        }
+
+        if let sc = Int32.init(sumChangeInput.text!) {
+            tripRecord?.sumChange = sc
         }
 
         tripRecord?.save()
@@ -49,6 +54,9 @@ class RecordDetailController: UIViewController, UITextFieldDelegate {
         self.resultSumInput.delegate = self
         self.resultSumInput.keyboardType = UIKeyboardType.numberPad
 
+        self.sumChangeInput.delegate = self
+        self.sumChangeInput.keyboardType = UIKeyboardType.numberPad
+
         initTripRecordState()
         changeButtonState()
     }
@@ -65,6 +73,8 @@ class RecordDetailController: UIViewController, UITextFieldDelegate {
 
     func updateResultSum() {
         if !(tripRecord?.isJustTripMember())! {
+            resultSumInput.text = "0"
+            sumChangeInput.text = "0"
             return
         }
         var sumForPay: Int32 = 0
@@ -92,6 +102,7 @@ class RecordDetailController: UIViewController, UITextFieldDelegate {
         }
 
         resultSumInput.text = "\(sumForPay)"
+        sumChangeInput.text = "\(tripRecord!.sumChange)"
     }
 
     private func initTripRecordState() {
@@ -103,12 +114,14 @@ class RecordDetailController: UIViewController, UITextFieldDelegate {
 
         usedBonuses.text = "\((tripRecord?.payedBonuses)!)"
 
-        tripProgram = tripRecord?.getTripProgram()
+        if (tripRecord?.isJustTripMember())! {
+            tripProgram = tripRecord?.getTripProgram()
+        }
 
         if tripProgram != nil && tripRecord!.isJustTripMember() {
             statusSegment.selectedSegmentIndex = (tripProgram?.getIndexByCurrentStatus())!
-            updateResultSum()
         }
+        updateResultSum()
     }
 
     private func changeTripRecordState() {
@@ -127,6 +140,7 @@ class RecordDetailController: UIViewController, UITextFieldDelegate {
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         resultSumInput.resignFirstResponder()
+        sumChangeInput.resignFirstResponder()
         return (true)
     }
 
@@ -136,7 +150,7 @@ class RecordDetailController: UIViewController, UITextFieldDelegate {
     }
 
     public func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-        scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+//        scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
         return true
     }
 

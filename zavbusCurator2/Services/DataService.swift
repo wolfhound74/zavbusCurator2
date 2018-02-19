@@ -54,6 +54,8 @@ func getDataFromServer() {
                     tripRecordObj.payedBonuses = record.object(forKey: "payedBonuses") as! Int32
                     tripRecordObj.paidSum = record.object(forKey: "paidSum") as! Int32
                     tripRecordObj.actualBonuses = record.object(forKey: "actualBonuses") as! Int32
+
+                    tripRecordObj.sumChange = 0
 //                    tripRecordObj.mainRiderId = record.object(forKey: "mainRiderId")! as! Int64
                     tripRecordObj.riderId = record.object(forKey: "riderId") as! Int64
                     tripRecordObj.needStuff = record.object(forKey: "needStuff") as! Bool

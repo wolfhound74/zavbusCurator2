@@ -2,7 +2,7 @@
 //  TripRecord+CoreDataProperties.swift
 //  zavbusCurator2
 //
-//  Created by владимир on 18.02.2018.
+//  Created by Vladimir Maslov on 19.02.2018.
 //  Copyright © 2018 Vladimir Maslov. All rights reserved.
 //
 //
@@ -24,10 +24,10 @@ extension TripRecord {
     @NSManaged public var id: Int64
     @NSManaged public var lastName: String?
     @NSManaged public var mainRiderId: Int64
+    @NSManaged public var needInsurance: Bool
     @NSManaged public var needMeal: Bool
     @NSManaged public var needStuff: Bool
     @NSManaged public var orderedKit: String?
-    @NSManaged public var ourDebt: Int32
     @NSManaged public var paidSum: Int32
     @NSManaged public var paidSumBefore: Int32
     @NSManaged public var payedBonuses: Int32
@@ -35,7 +35,7 @@ extension TripRecord {
     @NSManaged public var state: Int32
     @NSManaged public var status: Int32
     @NSManaged public var sumForPay: Int32
-    @NSManaged public var needInsurance: Bool
+    @NSManaged public var sumChange: Int32
     @NSManaged public var trip: Trip?
 
 }

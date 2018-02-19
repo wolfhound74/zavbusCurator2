@@ -151,6 +151,10 @@ class RecordDetailController: UIViewController, UITextFieldDelegate {
         return (true)
     }
 
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+
     public func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         scrollView.setContentOffset(CGPoint(x: 0, y: 220), animated: true)
         return true

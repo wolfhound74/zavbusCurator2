@@ -67,7 +67,7 @@ class RecordListController: UITableViewController, UISearchBarDelegate {
         if segue.identifier == "tripRecord" {
             if let indexPath = tableView.indexPathForSelectedRow {
                 let record = (!isSearching ? self.records[indexPath.row] : self.filteredRecords[indexPath.row]) as TripRecord
-                let controller = segue.destination as! RecordInfoController
+                let controller = segue.destination as! RecordDetailController
 
                 controller.tripRecord = record
             }

@@ -18,6 +18,22 @@ class RecordDetailController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var resultSumInput: UITextField!
     @IBOutlet weak var usedBonuses: UILabel!
+    
+    @IBOutlet weak var hiddenBlock: UIView!
+    
+    //кнопка подтверждения
+    @IBOutlet weak var confirmButton: UIButton!
+    @IBAction func confirmRecordAction(_ sender: UIButton) {
+        tripRecord?.confirmed = !(tripRecord?.confirmed)!
+
+        if let sm = Int32.init(resultSumInput.text!) {
+            tripRecord?.sumForPay = sm
+        }
+
+        tripRecord?.save()
+        changeButtonState()
+    }
+
 
     @IBAction func changeProgramAction(_ sender: UISegmentedControl) {
         changeTripRecordState()
@@ -34,9 +50,10 @@ class RecordDetailController: UIViewController, UITextFieldDelegate {
         self.resultSumInput.keyboardType = UIKeyboardType.numberPad
 
         initTripRecordState()
+        changeButtonState()
     }
 
-    @IBAction func resultSumChangeAction(_ sender: UITextField) {
+    @IBAction func resultSumAction(_ sender: UITextField) {
         var sumForPay: Int32 = 0
         if (sender.text != "") {
             sumForPay = Int32.init(sender.text!)!
@@ -52,8 +69,8 @@ class RecordDetailController: UIViewController, UITextFieldDelegate {
         }
         var sumForPay: Int32 = 0
 
+        //если неподтвержден. то высчитываем сумма заново
         if (!(tripRecord?.confirmed)!) {
-
             sumForPay += (tripProgram?.basicPrice)!
 
             if (needStuffSwitch.isOn) {
@@ -121,5 +138,17 @@ class RecordDetailController: UIViewController, UITextFieldDelegate {
     public func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
         scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
         return true
+    }
+
+    func changeButtonState() {
+        if (tripRecord?.confirmed)! {
+            confirmButton.setTitle("Отменить", for: .normal)
+            confirmButton.backgroundColor = UIColor.red
+            hiddenBlock.isHidden = false
+        } else {
+            confirmButton.setTitle("Подтвердить", for: .normal)
+            confirmButton.backgroundColor = UIColor.blue
+            hiddenBlock.isHidden = true
+        }
     }
 }

@@ -166,13 +166,16 @@
                                                 </connections>
                                             </segmentedControl>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="1800" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UUr-MU-K3F">
-                                                <rect key="frame" x="16" y="476" width="343" height="62"/>
+                                                <rect key="frame" x="16" y="459" width="343" height="62"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="48"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="resultSumAction:" destination="s8F-CV-OzG" eventType="editingDidEnd" id="OBk-5k-s5n"/>
+                                                </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Сумма:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L2X-wT-NGI">
-                                                <rect key="frame" x="16" y="452" width="47" height="16"/>
+                                                <rect key="frame" x="16" y="435" width="47" height="16"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -307,21 +310,42 @@
                                                     <constraint firstAttribute="bottom" secondItem="4jz-LL-7ZG" secondAttribute="bottom" constant="9" id="rXO-Sj-NeH"/>
                                                 </constraints>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fTp-zM-3tF">
-                                                <rect key="frame" x="16" y="545" width="343" height="50"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fTp-zM-3tF">
+                                                <rect key="frame" x="16" y="537" width="343" height="50"/>
                                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="75Q-u3-Fbd"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <state key="normal" title="Подтвердить">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="confirmRecordAction:" destination="s8F-CV-OzG" eventType="touchUpInside" id="T6R-pi-MBk"/>
+                                                </connections>
                                             </button>
+                                            <view hidden="YES" alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wRq-gK-0Pv" userLabel="hiddenBlock">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="529"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Запись подтверждена" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ioU-2p-6ay">
+                                                        <rect key="frame" x="0.0" y="352" width="372" height="73"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstItem="wRq-gK-0Pv" firstAttribute="leading" secondItem="iBT-xc-On0" secondAttribute="leading" id="0Sl-0M-uTF"/>
                                             <constraint firstItem="UwB-rb-JTK" firstAttribute="leading" secondItem="iBT-xc-On0" secondAttribute="leading" constant="16" id="0x5-Gv-OUg"/>
                                             <constraint firstItem="mBy-V8-xcj" firstAttribute="top" secondItem="fiK-Dd-yFc" secondAttribute="bottom" id="3V5-vg-l9i"/>
                                             <constraint firstItem="UUr-MU-K3F" firstAttribute="top" secondItem="L2X-wT-NGI" secondAttribute="bottom" constant="8" id="6hH-zT-VDT"/>
                                             <constraint firstAttribute="trailing" secondItem="z7h-Io-aL4" secondAttribute="trailing" id="6iv-ci-vOR"/>
+                                            <constraint firstAttribute="trailing" secondItem="wRq-gK-0Pv" secondAttribute="trailing" id="7te-8n-3uO"/>
                                             <constraint firstAttribute="trailing" secondItem="UUr-MU-K3F" secondAttribute="trailing" constant="16" id="Drw-js-QsQ"/>
                                             <constraint firstItem="z7h-Io-aL4" firstAttribute="top" secondItem="mBy-V8-xcj" secondAttribute="bottom" id="Ebv-dx-uiE"/>
                                             <constraint firstItem="UgY-uc-iew" firstAttribute="top" secondItem="UwB-rb-JTK" secondAttribute="bottom" constant="8" id="GVe-bP-aQh"/>
@@ -329,6 +353,7 @@
                                             <constraint firstItem="UgY-uc-iew" firstAttribute="leading" secondItem="iBT-xc-On0" secondAttribute="leading" id="LqX-o7-qj9"/>
                                             <constraint firstItem="fTp-zM-3tF" firstAttribute="leading" secondItem="iBT-xc-On0" secondAttribute="leading" constant="16" id="Nh9-fc-qvl"/>
                                             <constraint firstItem="fiK-Dd-yFc" firstAttribute="leading" secondItem="iBT-xc-On0" secondAttribute="leading" id="OGX-ax-L7C"/>
+                                            <constraint firstItem="wRq-gK-0Pv" firstAttribute="top" secondItem="iBT-xc-On0" secondAttribute="top" id="OoP-2D-J9S"/>
                                             <constraint firstAttribute="bottom" secondItem="fTp-zM-3tF" secondAttribute="bottom" constant="16" id="Qcz-Wp-Lgb"/>
                                             <constraint firstAttribute="trailing" secondItem="fTp-zM-3tF" secondAttribute="trailing" constant="16" id="SCe-nd-Izv"/>
                                             <constraint firstAttribute="trailing" secondItem="UwB-rb-JTK" secondAttribute="trailing" constant="16" id="X9v-yw-qCa"/>
@@ -340,6 +365,7 @@
                                             <constraint firstItem="f3W-u0-QPC" firstAttribute="top" secondItem="z7h-Io-aL4" secondAttribute="bottom" id="c8o-hf-Crn"/>
                                             <constraint firstItem="UUr-MU-K3F" firstAttribute="leading" secondItem="iBT-xc-On0" secondAttribute="leading" constant="16" id="fnN-ur-SMx"/>
                                             <constraint firstAttribute="trailing" secondItem="UgY-uc-iew" secondAttribute="trailing" id="frH-fC-I3g"/>
+                                            <constraint firstItem="fTp-zM-3tF" firstAttribute="top" secondItem="wRq-gK-0Pv" secondAttribute="bottom" constant="8" id="hne-ut-TY6"/>
                                             <constraint firstAttribute="trailing" secondItem="fiK-Dd-yFc" secondAttribute="trailing" id="mH9-tO-Syp"/>
                                             <constraint firstAttribute="trailing" secondItem="f3W-u0-QPC" secondAttribute="trailing" id="oaq-gZ-ga9"/>
                                             <constraint firstItem="fTp-zM-3tF" firstAttribute="top" secondItem="UUr-MU-K3F" secondAttribute="bottom" constant="16" id="rdV-eZ-cqy"/>
@@ -374,6 +400,8 @@
                         <viewLayoutGuide key="safeArea" id="FwY-0n-CeV"/>
                     </view>
                     <connections>
+                        <outlet property="confirmButton" destination="fTp-zM-3tF" id="3b1-4o-DCw"/>
+                        <outlet property="hiddenBlock" destination="wRq-gK-0Pv" id="A7Y-iF-RCJ"/>
                         <outlet property="mainContentView" destination="4ll-X4-7KN" id="ZD8-ZT-r4K"/>
                         <outlet property="needInsuranceSwitch" destination="Kdf-qx-fw0" id="dBO-uX-NR0"/>
                         <outlet property="needMealSwitch" destination="cor-xr-mye" id="ITG-BV-ErY"/>
@@ -386,7 +414,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ahz-4n-cFG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1946.25" y="1203.1690140845071"/>
+            <point key="canvasLocation" x="1944.8" y="1203.1484257871066"/>
         </scene>
         <!--Инфо-->
         <scene sceneID="VbT-l1-cpw">

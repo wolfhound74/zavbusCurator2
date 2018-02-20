@@ -92,6 +92,16 @@
 			path = trip;
 			sourceTree = "<group>";
 		};
+		0B6D3CB2203C6464005E02B2 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				0BAB530B201B6F6C0025E3AB /* AppDelegate.swift */,
+				0BAB5315201B6F6C0025E3AB /* Assets.xcassets */,
+				0BAB5317201B6F6C0025E3AB /* LaunchScreen.storyboard */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
 		0BAB52FF201B6F6C0025E3AB = {
 			isa = PBXGroup;
 			children = (
@@ -111,12 +121,10 @@
 		0BAB530A201B6F6C0025E3AB /* zavbusCurator2 */ = {
 			isa = PBXGroup;
 			children = (
-				0B55F80F203338FC00B7FE81 /* Services */,
-				0BAB530B201B6F6C0025E3AB /* AppDelegate.swift */,
-				0BAB530F201B6F6C0025E3AB /* Main.storyboard */,
-				0BAB5315201B6F6C0025E3AB /* Assets.xcassets */,
-				0BAB5317201B6F6C0025E3AB /* LaunchScreen.storyboard */,
 				0BAB531A201B6F6C0025E3AB /* Info.plist */,
+				0B55F80F203338FC00B7FE81 /* Services */,
+				0B6D3CB2203C6464005E02B2 /* SupportingFiles */,
+				0BAB530F201B6F6C0025E3AB /* Main.storyboard */,
 				0BAB5312201B6F6C0025E3AB /* zavbusCurator2.xcdatamodeld */,
 				BF8D0F5C71C348C6C8F8F650 /* Model */,
 				BF8D0ACE02CCA600CF8B5C82 /* Controllers */,

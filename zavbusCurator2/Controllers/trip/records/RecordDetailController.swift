@@ -1,11 +1,12 @@
 import UIKit
 
-class RecordDetailController: UIViewController, UITextFieldDelegate {
+class RecordDetailController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate {
 
     var tripRecord: TripRecord?
     var tripProgram: TripProgram?
 
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var contentView: UIView!
 
     @IBOutlet weak var comment: UILabel!
 
@@ -57,6 +58,8 @@ class RecordDetailController: UIViewController, UITextFieldDelegate {
 
         self.sumChangeInput.delegate = self
         self.sumChangeInput.keyboardType = UIKeyboardType.numberPad
+
+        self.scrollView.delegate = self
 
         initTripRecordState()
         changeButtonState()
@@ -153,6 +156,7 @@ class RecordDetailController: UIViewController, UITextFieldDelegate {
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
+        self.contentView.endEditing(true)
     }
 
     public func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {

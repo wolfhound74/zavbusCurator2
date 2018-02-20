@@ -72,7 +72,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" misplaced="YES" id="rAL-fF-d7T">
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="rAL-fF-d7T">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits"/>
@@ -153,10 +153,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gJw-dR-hAv" userLabel="ScrollView">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gJw-dR-hAv" userLabel="scrollView">
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iBT-xc-On0">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iBT-xc-On0" userLabel="contentView">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                                         <subviews>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="UwB-rb-JTK">
@@ -422,6 +422,7 @@
                     </view>
                     <connections>
                         <outlet property="confirmButton" destination="fTp-zM-3tF" id="3b1-4o-DCw"/>
+                        <outlet property="contentView" destination="iBT-xc-On0" id="TSe-MO-KfQ"/>
                         <outlet property="hiddenBlock" destination="wRq-gK-0Pv" id="A7Y-iF-RCJ"/>
                         <outlet property="mainContentView" destination="4ll-X4-7KN" id="ZD8-ZT-r4K"/>
                         <outlet property="needInsuranceSwitch" destination="Kdf-qx-fw0" id="dBO-uX-NR0"/>

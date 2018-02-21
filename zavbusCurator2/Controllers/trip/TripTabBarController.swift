@@ -16,8 +16,8 @@ class TripTabBarController: UITabBarController {
 //                vc.records = self.records
                 vc.trip = self.trip
             }
-            if vc is TripInfoContainer {
-                let vc = vc as! TripInfoContainer
+            if vc is TripDetailController {
+                let vc = vc as! TripDetailController
                 vc.trip = self.trip
             }
         }

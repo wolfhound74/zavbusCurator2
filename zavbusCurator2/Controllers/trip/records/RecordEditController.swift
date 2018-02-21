@@ -66,8 +66,8 @@ class RecordEditController: UITableViewController, UITextFieldDelegate {
             if (needInsuranceSwitch.isOn) {
                 sumForPay += (tripProgram?.insurancePrice)!
             }
-            sumForPay -= (tripRecord?.payedBonuses)!
-            sumForPay -= (tripRecord?.paidSum)!
+            sumForPay -= (tripRecord?.prepaidBonuses)!
+            sumForPay -= (tripRecord?.paidSumInBus)!
 
             tripRecord?.sumForPay = sumForPay
             tripRecord?.save()
@@ -86,7 +86,7 @@ class RecordEditController: UITableViewController, UITextFieldDelegate {
         needMealSwitch.isOn = (tripRecord?.needMeal)!
         needInsuranceSwitch.isOn = false
 
-        usedBonuses.text = "\((tripRecord?.payedBonuses)!)"
+        usedBonuses.text = "\((tripRecord?.prepaidBonuses)!)"
 
         tripProgram = tripRecord?.getTripProgram()
 

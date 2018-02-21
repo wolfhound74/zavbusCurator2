@@ -16,10 +16,33 @@ class TripListController: UITableViewController {
     }
 
     @IBAction func reloadDataButton(_ sender: Any) {
-        //todo сделать модульный диалог
-        getDataFromServer()
-        loadFromCore()
-        tableView.reloadData()
+        let alertController = UIAlertController(title: "Загрузить данные с сервера?", message: "Все текущие данные на этом устройстве перезапишутся", preferredStyle: .alert)
+
+        alertController.addTextField { (textField) in
+            textField.placeholder = "Login"
+        }
+        alertController.addTextField { (textField) in
+            textField.placeholder = "Password"
+        }
+
+        let confirmAction = UIAlertAction(title: "Загрузить", style: .default) { (_) in
+
+            //getting the input values from user
+            let login = alertController.textFields?[0].text
+            let password = alertController.textFields?[1].text
+
+            getDataFromServer(login: login!, password: password!)
+            self.loadFromCore()
+            self.tableView.reloadData()
+
+        }
+        let cancelAction = UIAlertAction(title: "Отмена", style: .cancel) { (_) in
+        }
+
+        alertController.addAction(confirmAction)
+        alertController.addAction(cancelAction)
+
+        self.present(alertController, animated: true, completion: nil)
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {

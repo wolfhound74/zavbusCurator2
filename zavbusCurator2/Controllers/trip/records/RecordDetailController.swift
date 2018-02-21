@@ -102,8 +102,8 @@ class RecordDetailController: UIViewController, UITextFieldDelegate, UIScrollVie
             if (needInsuranceSwitch.isOn) {
                 sumForPay += (tripProgram?.insurancePrice)!
             }
-            sumForPay -= (tripRecord?.payedBonuses)!
-            sumForPay -= (tripRecord?.paidSum)!
+            sumForPay -= (tripRecord?.prepaidBonuses)!
+            sumForPay -= (tripRecord?.paidSumInBus)!
 
             tripRecord?.sumForPay = sumForPay
             tripRecord?.save()
@@ -122,7 +122,7 @@ class RecordDetailController: UIViewController, UITextFieldDelegate, UIScrollVie
         needMealSwitch.isOn = (tripRecord?.needMeal)!
         needInsuranceSwitch.isOn = false
 
-        usedBonuses.text = "\((tripRecord?.payedBonuses)!)"
+        usedBonuses.text = "\((tripRecord?.prepaidBonuses)!)"
 
         if (tripRecord?.isJustTripMember())! {
             tripProgram = tripRecord?.getTripProgram()

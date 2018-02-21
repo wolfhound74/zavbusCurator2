@@ -28,9 +28,9 @@ extension TripRecord {
     @NSManaged public var needMeal: Bool
     @NSManaged public var needStuff: Bool
     @NSManaged public var orderedKit: String?
-    @NSManaged public var paidSum: Int32
-    @NSManaged public var paidSumBefore: Int32
-    @NSManaged public var payedBonuses: Int32
+    @NSManaged public var paidSumInBus: Int32
+    @NSManaged public var prepaidSum: Int32
+    @NSManaged public var prepaidBonuses: Int32
     @NSManaged public var riderId: Int64
     @NSManaged public var state: Int32
     @NSManaged public var status: Int32

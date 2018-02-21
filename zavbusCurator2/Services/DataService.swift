@@ -1,9 +1,13 @@
 import UIKit
 import CoreData
 
-func getDataFromServer() {
+func getDataFromServer(login: String, password: String) {
+    if (login == nil || login == "" || password == nil || password == "") {
+        return
+    }
+
     let url = URL(string: "http://cp.zavbus.team/api/curatorData")
-//    let url = URL(string: "http://127.0.0.1:8090/api/curatorData")
+//    let url = URL(string: "http://127.0.0.1:8090/api/curatorData?login=\(login)&password=\(password)")
 //    let url = URL(string: "http://192.168.1.88:8090/api/curatorData")
     do {
         let data = try Data(contentsOf: url!)
@@ -51,9 +55,10 @@ func getDataFromServer() {
                     tripRecordObj.commentFromVk = record.object(forKey: "commentFromVk") as? String
 
                     tripRecordObj.orderedKit = record.object(forKey: "orderedKit") as? String
-                    tripRecordObj.payedBonuses = record.object(forKey: "payedBonuses") as! Int32
-                    tripRecordObj.paidSum = record.object(forKey: "paidSum") as! Int32
+                    tripRecordObj.prepaidBonuses = record.object(forKey: "prepaidBonuses") as! Int32
+                    tripRecordObj.paidSumInBus = record.object(forKey: "paidSumInBus") as! Int32
                     tripRecordObj.actualBonuses = record.object(forKey: "actualBonuses") as! Int32
+                    tripRecordObj.prepaidSum = record.object(forKey: "prepaidSum") as! Int32
 
                     tripRecordObj.sumChange = 0
 //                    tripRecordObj.mainRiderId = record.object(forKey: "mainRiderId")! as! Int64

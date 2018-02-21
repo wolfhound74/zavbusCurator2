@@ -579,6 +579,9 @@
                                 <state key="normal" title="Отправить данные на сервер">
                                     <color key="titleColor" red="0.96704939919999999" green="1" blue="0.94302487909999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="sendDataButton:" destination="cuA-rA-pY4" eventType="touchUpInside" id="pR0-Pt-P0d"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100500" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GKq-cZ-JPw">
                                 <rect key="frame" x="227" y="449" width="77" height="24"/>

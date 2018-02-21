@@ -34,6 +34,35 @@ class TripDetailController: UIViewController {
         resultSumLabel.text = "\(countPaidSums())"
     }
 
+    @IBAction func sendDataButton(_ sender: UIButton) {
+        let alertController = UIAlertController(title: "Загрузить данные на сервер?", message: "", preferredStyle: .alert)
+
+        alertController.addTextField { (textField) in
+            textField.placeholder = "Login"
+        }
+        alertController.addTextField { (textField) in
+            textField.placeholder = "Password"
+        }
+
+        let confirmAction = UIAlertAction(title: "Загрузить", style: .default) { (_) in
+
+            //getting the input values from user
+            let login = alertController.textFields?[0].text
+            let password = alertController.textFields?[1].text
+
+            sendDataToServer(trip: self.trip!, login: login!, password: password!)
+        }
+
+        let cancelAction = UIAlertAction(title: "Отмена", style: .cancel) { (_) in
+        }
+
+        alertController.addAction(confirmAction)
+        alertController.addAction(cancelAction)
+
+        self.present(alertController, animated: true, completion: nil)
+    }
+
+
     func countMembers(withStatus status: Int) -> Int {
         return doFilter {
             let tr = $0 as! TripRecord
@@ -79,7 +108,7 @@ class TripDetailController: UIViewController {
         var paidSums: Int32 = 0
 
         for var rec in paidRecs {
-            paidSums += rec.sumForPay
+            paidSums += rec.paidSumInBus
         }
         return paidSums
     }

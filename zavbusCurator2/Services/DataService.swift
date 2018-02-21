@@ -6,9 +6,9 @@ func getDataFromServer(login: String, password: String) {
         return
     }
 
-    let url = URL(string: "http://cp.zavbus.team/api/curatorData")
+    let url = URL(string: getUrl() + "/curatorData?username=\(login)&password=\(password)")
 //    let url = URL(string: "http://127.0.0.1:8090/api/curatorData?login=\(login)&password=\(password)")
-//    let url = URL(string: "http://192.168.1.88:8090/api/curatorData")
+//    let url = URL(string: "http://192.168.1.88:8090/api/curatorData?login=\(login)&password=\(password)")
     do {
         let data = try Data(contentsOf: url!)
         do {
@@ -75,6 +75,73 @@ func getDataFromServer(login: String, password: String) {
         }
     } catch {
     }
+}
+
+private func getUrl() -> String {
+    return "http://127.0.0.1:8090/api"
+//    return "http://192.168.1.88:8090/api"
+//    return "http://cp.zavbus.team/api"
+}
+
+func sendDataToServer(trip: Trip, login: String, password: String) {
+    let url = URL(string:  getUrl() + "/updateTripRecords?username=\(login)&password=\(password)")
+
+    //create the session object
+    let session = URLSession.shared
+
+    var request = URLRequest(url: url!)
+    request.httpMethod = "POST"
+
+    var recordsArray = [[String: Any]]()
+
+    for record in trip.records! {
+        let rec = record as! TripRecord
+        if (rec.confirmed) {
+            let dict = [
+                "recordId": rec.id,
+                "paidSumInBus": rec.paidSumInBus,
+                "needMeal": rec.needMeal,
+                "needStuff": rec.needStuff,
+                "needInsurance": rec.needInsurance,
+                "status": rec.status
+            ] as [String : Any]
+            recordsArray.append(dict)
+        }
+    }
+
+    do {
+        request.httpBody = try JSONSerialization.data(withJSONObject: recordsArray, options: .prettyPrinted) // pass dictionary to nsdata object and set it as request body
+
+    } catch let error {
+        print(error.localizedDescription)
+    }
+
+    request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+    request.addValue("application/json", forHTTPHeaderField: "Accept")
+
+    //create dataTask using the session object to send data to the server
+    let task = session.dataTask(with: request as URLRequest, completionHandler: { data, response, error in
+
+        guard error == nil else {
+            return
+        }
+
+        guard let data = data else {
+            return
+        }
+
+        do {
+            //create json object from data
+            if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
+                print(json)
+            }
+
+        } catch let error {
+            print(error.localizedDescription)
+        }
+    })
+    task.resume()
+
 }
 
 // пока хардкод и такая логика

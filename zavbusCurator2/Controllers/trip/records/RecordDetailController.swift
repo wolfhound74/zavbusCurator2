@@ -30,7 +30,7 @@ class RecordDetailController: UIViewController, UITextFieldDelegate, UIScrollVie
         tripRecord?.confirmed = !(tripRecord?.confirmed)!
 
         if let sm = Int32.init(resultSumInput.text!) {
-            tripRecord?.sumForPay = sm
+            tripRecord?.paidSumInBus = sm
         }
 
         if let sc = Int32.init(sumChangeInput.text!) {

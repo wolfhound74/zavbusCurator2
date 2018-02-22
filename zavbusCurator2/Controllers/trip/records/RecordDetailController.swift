@@ -61,8 +61,14 @@ class RecordDetailController: UIViewController, UITextFieldDelegate, UIScrollVie
 
         self.scrollView.delegate = self
 
+        self.navigationItem.title = (tripRecord?.lastName)! + " " + (tripRecord?.firstName)!
+
         initTripRecordState()
         changeButtonState()
+//swipe
+//        let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(backToRecords(swipe:)))
+//        rightSwipe.direction = UISwipeGestureRecognizerDirection.right
+//        self.view.addGestureRecognizer(rightSwipe)
     }
 
     @IBAction func resultSumAction(_ sender: UITextField) {
@@ -180,4 +186,17 @@ class RecordDetailController: UIViewController, UITextFieldDelegate, UIScrollVie
             hiddenBlock.isHidden = true
         }
     }
+
+//swipe
+//    @objc func backToRecords(swipe: UISwipeGestureRecognizer) {
+//       performSegue(withIdentifier: "backToRecords", sender: self)
+//    }
+//
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "backToRecords" {
+//            let controller = segue.destination as! RecordListController
+//
+//            controller.trip = tripRecord!.trip
+//        }
+//    }
 }

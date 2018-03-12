@@ -40,6 +40,7 @@ func getDataFromServer(login: String, password: String) {
                 tripObject.addToPrograms(getTripProgram(status: 4, basicPrice: 1800, stuffPrice: 400, mealPrice: 200, insurancePrice: 50, managedContext: managedContext))
                 tripObject.addToPrograms(getTripProgram(status: 5, basicPrice: 1500, stuffPrice: 0, mealPrice: 200, insurancePrice: 50, managedContext: managedContext))
                 tripObject.addToPrograms(getTripProgram(status: 6, basicPrice: 850, stuffPrice: 400, mealPrice: 200, insurancePrice: 50, managedContext: managedContext))
+                tripObject.addToPrograms(getTripProgram(status: 7, basicPrice: 1500, stuffPrice: 400, mealPrice: 200, insurancePrice: 50, managedContext: managedContext))
 
                 for var record in trip.object(forKey: "records") as! Array<NSDictionary> {
                     let tripRecordEntity = NSEntityDescription.entity(forEntityName: "TripRecord", in: managedContext)!
@@ -78,9 +79,9 @@ func getDataFromServer(login: String, password: String) {
 }
 
 private func getUrl() -> String {
-    return "http://127.0.0.1:8090/api"
+//    return "http://127.0.0.1:8090/api"
 //    return "http://192.168.1.88:8090/api"
-//    return "http://cp.zavbus.team/api"
+    return "http://cp.zavbus.team/api"
 }
 
 func sendDataToServer(trip: Trip, login: String, password: String) {

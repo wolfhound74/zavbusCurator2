@@ -20,7 +20,7 @@ public class TripRecord: NSManagedObject {
     }
 
     func isJustTripMember() -> Bool {
-        return [4, 5, 6].contains(status)
+        return [4, 5, 6, 7].contains(status)
     }
 
     func getTripProgram() -> TripProgram {

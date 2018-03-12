@@ -109,7 +109,6 @@ class RecordDetailController: UIViewController, UITextFieldDelegate, UIScrollVie
                 sumForPay += (tripProgram?.insurancePrice)!
             }
             sumForPay -= (tripRecord?.prepaidBonuses)!
-            sumForPay -= (tripRecord?.paidSumInBus)!
 
             tripRecord?.sumForPay = sumForPay
             tripRecord?.save()

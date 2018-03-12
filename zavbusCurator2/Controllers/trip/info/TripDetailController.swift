@@ -13,7 +13,7 @@ class TripDetailController: UIViewController {
     @IBOutlet weak var instructorNumberLabel: UILabel!
     @IBOutlet weak var absenceNumberLabel: UILabel!
     @IBOutlet weak var resultSumLabel: UILabel!
-
+    @IBOutlet weak var insuranceLabel: UILabel!
 
     @IBOutlet weak var mealsCountLabel: UILabel!
 
@@ -28,7 +28,8 @@ class TripDetailController: UIViewController {
         photographerNumberLabel.text = "\(countMembers(withStatus: 3))"
         instructorNumberLabel.text = "\(countMembers(withStatus: 8))"
         absenceNumberLabel.text = "\(countAbsenceMembers())"
-
+        
+        insuranceLabel.text = "\(countInsurance())"
         mealsCountLabel.text = "\(countMeals())"
 
         resultSumLabel.text = "\(countPaidSums())"
@@ -87,6 +88,13 @@ class TripDetailController: UIViewController {
         return doFilter {
             let tr = $0 as! TripRecord
             return tr.needMeal && tr.confirmed
+        }
+    }
+    
+    func countInsurance() -> Int {
+        return doFilter {
+            let tr = $0 as! TripRecord
+            return tr.needInsurance && tr.confirmed
         }
     }
 

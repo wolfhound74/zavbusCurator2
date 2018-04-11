@@ -1,14 +1,20 @@
 import UIKit
-import CoreData
 
 class TripListController: UITableViewController {
-
-    var busTrips = [Trip]()
+    weak var tripViewModel: TripViewModel! {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.navigationController?.navigationBar.isTranslucent = false;
+
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+            self.tripViewModel = TripViewModel(appDelegate: appDelegate)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,7 +38,7 @@ class TripListController: UITableViewController {
             let password = alertController.textFields?[1].text
 
             getDataFromServer(login: login!, password: password!)
-            self.loadFromCore()
+            self.tripViewModel.loadFromCore()
             self.tableView.reloadData()
 
         }
@@ -50,14 +56,13 @@ class TripListController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return busTrips.count
+        return tripViewModel.numberOfTrips()
     }
-
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tripCell", for: indexPath)
 
-        let trip = busTrips[indexPath.row]
+        let trip = tripViewModel.busTrips[indexPath.row]
         cell.textLabel?.text = trip.title
         cell.detailTextLabel?.text = trip.dates! + " | Участники: \(trip.memberNumber)"
 
@@ -66,29 +71,13 @@ class TripListController: UITableViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
-        loadFromCore()
-    }
-
-    func loadFromCore() {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return
-        }
-
-        let managedContext = appDelegate.persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<Trip>(entityName: "Trip")
-
-        do {
-            busTrips = try managedContext.fetch(fetchRequest)
-        } catch let error as NSError {
-            print("Could not fetch. \(error), \(error.userInfo)")
-        }
+        self.tripViewModel.loadFromCore()
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "tripRecords" {
             if let indexPath = tableView.indexPathForSelectedRow {
-                let trip = busTrips[(tableView.indexPathForSelectedRow?.row)!]
+                let trip = tripViewModel.busTrips[(tableView.indexPathForSelectedRow?.row)!]
                 let controller = segue.destination as! TripTabBarController
 //                controller.records = (trip.records?.allObjects as! [TripRecord]).sorted { $0.lastName! < $1.lastName! }
                 controller.trip = trip
